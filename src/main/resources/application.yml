@@ -4,3 +4,7 @@ spring:
    url: jdbc:mysql://139.196.232.5:3306/meetingroom?useunicode=true&characterEncoding=utf8
    username: root
    password: 1qaz@WSX
+mybatis:
+  type-aliases-package: cn.office.tools.meetingroom.dao
+  configuration:
+    map-underscore-to-camel-case: true
