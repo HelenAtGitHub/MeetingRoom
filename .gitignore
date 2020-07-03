@@ -21,4 +21,5 @@ target
 .settings
 .metadata
 .vscode
+.idea
 /meetingroom.iml
