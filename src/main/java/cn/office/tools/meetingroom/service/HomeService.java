@@ -4,6 +4,6 @@ import java.util.List;
 
 import cn.office.tools.meetingroom.dao.Test;
 
-public interface IHomeService {
+public interface HomeService {
     List<Test> selectAllTests();
 }

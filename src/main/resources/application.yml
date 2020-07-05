@@ -5,6 +5,6 @@ spring:
    username: root
    password: 1qaz@WSX
 mybatis:
-  type-aliases-package: cn.office.tools.meetingroom.dao
+  type-aliases-package: cn.office.tools.*.dao
   configuration:
     map-underscore-to-camel-case: true

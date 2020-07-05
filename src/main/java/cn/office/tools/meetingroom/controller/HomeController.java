@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.office.tools.meetingroom.dao.Test;
-import cn.office.tools.meetingroom.service.IHomeService;
+import cn.office.tools.meetingroom.service.HomeService;
 
 @Controller
 @EnableAutoConfiguration
@@ -18,7 +18,7 @@ import cn.office.tools.meetingroom.service.IHomeService;
 public class HomeController {
 
     @Autowired
-    private IHomeService homeService;
+    private HomeService homeService;
 
     @GetMapping("index")
     @ResponseBody
