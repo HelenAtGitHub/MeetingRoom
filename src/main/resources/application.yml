@@ -1,10 +1,14 @@
 spring:
+ thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
  datasource:
    driver-class-name: com.mysql.jdbc.Driver
    url: jdbc:mysql://139.196.232.5:3306/meetingroom?useunicode=true&characterEncoding=utf8
    username: root
    password: 1qaz@WSX
 mybatis:
-  type-aliases-package: cn.office.tools.meetingroom.dao
+  type-aliases-package: cn.office.tools.*.dao
   configuration:
     map-underscore-to-camel-case: true
