@@ -43,3 +43,14 @@ CREATE TABLE sys_permission_role(
 	create_time DATETIME NOT NULL,
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE obj_meetingroom(
+	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	name VARCHAR(128) NOT NULL,
+	status TINYINT UNSIGNED NOT NULL,
+	create_time DATETIME NOT NULL,
+	PRIMARY KEY (id)
+);
+
+INSERT INTO TABLE obj_meetingroom VALUES("Beijing",1,now())
+INSERT INTO TABLE obj_meetingroom VALUES("Shanghai",1,now())
