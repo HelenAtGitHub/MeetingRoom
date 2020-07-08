@@ -4,7 +4,16 @@ import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Role {
+import org.springframework.data.annotation.Id;
+import org.springframework.security.core.GrantedAuthority;
+
+
+public class Role  implements GrantedAuthority {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    @Id
     private BigInteger id;
 	private String name;
 	private String displayName;
@@ -131,6 +140,11 @@ public class Role {
             ", createTime='" + getCreateTime() + "'" +
             ", updateTime='" + getUpdateTime() + "'" +
             "}";
+    }
+
+    @Override
+    public String getAuthority() {
+        return this.name;
     }
     
 }

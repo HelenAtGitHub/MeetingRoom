@@ -2,18 +2,30 @@ package cn.office.tools.usercenter.dao;
 
 import java.math.BigInteger;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
-public class User {
+import org.springframework.data.annotation.Id;
+import org.springframework.security.core.userdetails.UserDetails;
+
+
+public class User implements UserDetails {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    @Id
     private BigInteger id;
     private String name;
-    private String userName;
+    private String username;
     private String password;
     private int isDelete;
     private LocalDateTime passwordUpdateTime;
     private LocalDateTime lastLoginTime;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
+    
+    private List<Role> authorities;
 
     public BigInteger getId() {
         return this.id;
@@ -31,12 +43,12 @@ public class User {
         this.name = name;
     }
 
-    public String getUserName() {
-        return this.userName;
+    public String getUsername() {
+        return this.username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -87,6 +99,13 @@ public class User {
         this.updateTime = updateTime;
     }
 
+    public List<Role> getAuthorities() {
+        return this.authorities;
+    }
+
+    public void setAuthorities(List<Role> authorities) {
+        this.authorities = authorities;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -96,27 +115,45 @@ public class User {
             return false;
         }
         User user = (User) o;
-        return id == user.id && Objects.equals(name, user.name) && Objects.equals(userName, user.userName) && Objects.equals(password, user.password) && isDelete == user.isDelete && Objects.equals(passwordUpdateTime, user.passwordUpdateTime) && Objects.equals(lastLoginTime, user.lastLoginTime) && Objects.equals(createTime, user.createTime) && Objects.equals(updateTime, user.updateTime);
+        return id == user.id && Objects.equals(name, user.name) && Objects.equals(username, user.username)
+                && Objects.equals(password, user.password) && isDelete == user.isDelete
+                && Objects.equals(passwordUpdateTime, user.passwordUpdateTime)
+                && Objects.equals(lastLoginTime, user.lastLoginTime) && Objects.equals(createTime, user.createTime)
+                && Objects.equals(updateTime, user.updateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, userName, password, isDelete, passwordUpdateTime, lastLoginTime, createTime, updateTime);
+        return Objects.hash(id, name, username, password, isDelete, passwordUpdateTime, lastLoginTime, createTime,
+                updateTime);
     }
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", name='" + getName() + "'" +
-            ", userName='" + getUserName() + "'" +
-            ", password='" + getPassword() + "'" +
-            ", isDelete='" + getIsDelete() + "'" +
-            ", passwordUpdateTime='" + getPasswordUpdateTime() + "'" +
-            ", lastLoginTime='" + getLastLoginTime() + "'" +
-            ", createTime='" + getCreateTime() + "'" +
-            ", updateTime='" + getUpdateTime() + "'" +
-            "}";
+        return "{" + " id='" + getId() + "'" + ", name='" + getName() + "'" + ", userName='" + getUsername() + "'"
+                + ", password='" + getPassword() + "'" + ", isDelete='" + getIsDelete() + "'" + ", passwordUpdateTime='"
+                + getPasswordUpdateTime() + "'" + ", lastLoginTime='" + getLastLoginTime() + "'" + ", createTime='"
+                + getCreateTime() + "'" + ", updateTime='" + getUpdateTime() + "'" + "}";
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
 }

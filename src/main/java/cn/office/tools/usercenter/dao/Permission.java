@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+
 public class Permission {
     private BigInteger id;
 	private String name;
