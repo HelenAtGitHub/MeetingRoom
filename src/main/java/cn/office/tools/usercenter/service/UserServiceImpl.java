@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ import cn.office.tools.usercenter.mapper.RoleMapper;
 import cn.office.tools.usercenter.mapper.UserMapper;
 
 @Service
-public class UserServiceImpl implements UserDetailsService, UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -49,11 +48,12 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {        
-        User user = userMapper.getUserByUsername(username);
+        User user = userMapper.getUserByUsername(username);        
         if (null != user) {
             List<Role> roles = roleMapper.getRolesByUserId(user.getId());
             user.setAuthorities(roles);
         }
+        System.out.println(user.toString());
         return user;
     }
 

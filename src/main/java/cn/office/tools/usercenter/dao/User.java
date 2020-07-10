@@ -128,13 +128,23 @@ public class User implements UserDetails {
                 updateTime);
     }
 
+
     @Override
     public String toString() {
-        return "{" + " id='" + getId() + "'" + ", name='" + getName() + "'" + ", userName='" + getUsername() + "'"
-                + ", password='" + getPassword() + "'" + ", isDelete='" + getIsDelete() + "'" + ", passwordUpdateTime='"
-                + getPasswordUpdateTime() + "'" + ", lastLoginTime='" + getLastLoginTime() + "'" + ", createTime='"
-                + getCreateTime() + "'" + ", updateTime='" + getUpdateTime() + "'" + "}";
+        return "{" +
+            " id='" + getId() + "'" +
+            ", name='" + getName() + "'" +
+            ", username='" + getUsername() + "'" +
+            ", password='" + getPassword() + "'" +
+            ", isDelete='" + getIsDelete() + "'" +
+            ", passwordUpdateTime='" + getPasswordUpdateTime() + "'" +
+            ", lastLoginTime='" + getLastLoginTime() + "'" +
+            ", createTime='" + getCreateTime() + "'" +
+            ", updateTime='" + getUpdateTime() + "'" +
+            ", authorities='" + getAuthorities() + "'" +
+            "}";
     }
+
 
     @Override
     public boolean isAccountNonExpired() {

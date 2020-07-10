@@ -78,41 +78,6 @@ public class Role  implements GrantedAuthority {
         this.updateTime = updateTime;
     }
 
-    public Role id(BigInteger id) {
-        this.id = id;
-        return this;
-    }
-
-    public Role name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public Role displayName(String displayName) {
-        this.displayName = displayName;
-        return this;
-    }
-
-    public Role isDefault(int isDefault) {
-        this.isDefault = isDefault;
-        return this;
-    }
-
-    public Role isDeleted(int isDeleted) {
-        this.isDeleted = isDeleted;
-        return this;
-    }
-
-    public Role createTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-        return this;
-    }
-
-    public Role updateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -128,6 +93,7 @@ public class Role  implements GrantedAuthority {
     public int hashCode() {
         return Objects.hash(id, name, displayName, isDefault, isDeleted, createTime, updateTime);
     }
+    
 
     @Override
     public String toString() {
@@ -141,6 +107,7 @@ public class Role  implements GrantedAuthority {
             ", updateTime='" + getUpdateTime() + "'" +
             "}";
     }
+
 
     @Override
     public String getAuthority() {

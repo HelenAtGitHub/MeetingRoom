@@ -1,5 +1,6 @@
 package cn.office.tools.usercenter.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -9,9 +10,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import cn.office.tools.usercenter.service.UserService;
+
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecrtityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserService userService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -33,6 +40,6 @@ public class SecrtityConfig extends WebSecurityConfigurerAdapter {
         
         // auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("admin")
         //         .password(new BCryptPasswordEncoder().encode("admin")).roles("Admin");
+        auth.userDetailsService(userService) .passwordEncoder(passwordEncoder());
     }
-
 }
