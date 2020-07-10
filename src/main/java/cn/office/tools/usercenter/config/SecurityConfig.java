@@ -14,7 +14,7 @@ import cn.office.tools.usercenter.service.UserService;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
-public class SecrtityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserService userService;
@@ -25,10 +25,16 @@ public class SecrtityConfig extends WebSecurityConfigurerAdapter {
         // 请求授权的规则~
         http.authorizeRequests()
         .antMatchers("/authority/**","/dist/**","/plugins/**").permitAll()
-        .anyRequest().authenticated();
-        http.formLogin().loginPage("/authority/login").successForwardUrl("/authority/success")
-                .usernameParameter("username").passwordParameter("password").loginProcessingUrl("/login")
-                .and().logout().logoutSuccessUrl("/").and().rememberMe().rememberMeParameter("remember").and().csrf().disable();
+        .anyRequest().authenticated()
+        .and()
+        .formLogin()
+        .loginPage("/authority/login").successForwardUrl("/authority/success")
+        .usernameParameter("username").passwordParameter("password")
+        .loginProcessingUrl("/login")
+        .and()
+        .logout().logoutSuccessUrl("/")
+        .and().rememberMe().rememberMeParameter("remember")
+        .and().csrf().disable();
 
     }
     @Bean
