@@ -5,14 +5,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
 public class User implements UserDetails {
-    /**
-     *
-     */
+    
     private static final long serialVersionUID = 1L;
     
     private BigInteger id;
