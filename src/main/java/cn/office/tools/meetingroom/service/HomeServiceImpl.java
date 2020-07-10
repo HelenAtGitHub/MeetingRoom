@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import cn.office.tools.meetingroom.dao.Test;
 import cn.office.tools.meetingroom.mapper.TestMapper;
 
-
+@Service
 public class HomeServiceImpl implements HomeService {
 
     @Autowired
