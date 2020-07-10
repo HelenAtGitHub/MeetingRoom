@@ -51,6 +51,5 @@ CREATE TABLE obj_meetingroom(
 	create_time DATETIME NOT NULL,
 	PRIMARY KEY (id)
 );
-
 INSERT INTO TABLE obj_meetingroom VALUES("Beijing",1,now())
 INSERT INTO TABLE obj_meetingroom VALUES("Shanghai",1,now())
