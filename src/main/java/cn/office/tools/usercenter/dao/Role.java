@@ -4,14 +4,11 @@ import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 
 
 public class Role  implements GrantedAuthority {
-    /**
-     *
-     */
+    
     private static final long serialVersionUID = 1L;
     
     private BigInteger id;
