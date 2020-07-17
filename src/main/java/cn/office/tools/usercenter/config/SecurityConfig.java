@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         // 请求授权的规则~
-        http.authorizeRequests().antMatchers("/authority/**", "/dist/**", "/plugins/**").permitAll().anyRequest()
+        http.authorizeRequests().antMatchers("/**.js","/**","/authority/**", "/dist/**","/", "/plugins/**").permitAll().anyRequest()
                 .authenticated().and().formLogin().loginPage("/authority/login").successForwardUrl("/authority/success")
                 .usernameParameter("username").passwordParameter("password").loginProcessingUrl("/login").and().logout()
                 .logoutSuccessUrl("/").and().rememberMe().rememberMeParameter("remember").and().csrf().disable();
