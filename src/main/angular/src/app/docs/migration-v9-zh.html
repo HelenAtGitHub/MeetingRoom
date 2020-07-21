@@ -1,0 +1,27 @@
+<article class="markdown"><h1>9.x 升级指南<span class="subtitle"></span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/docs/migration-v9.zh-CN.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#开始之前" nzTitle="开始之前"></nz-link><nz-link nzHref="#升级步骤" nzTitle="升级步骤"></nz-link>
+    </nz-anchor>
+</nz-affix>
+  <section class="markdown" ngNonBindable><p>本文档将帮助你从 <code>ng-zorro-antd</code> 8.x 版本升级到 9.x 版本，如果你是 7.x 或者更老的版本，请先参考之前的升级文档升级到 8.x。</p>
+<h2 id="开始之前"><span>开始之前</span><a onclick="window.location.hash = '开始之前'" class="anchor">#</a></h2><ol>
+<li>首先确保你 <code>Node.js</code> &gt;= <code>10.13</code></li>
+<li>创建新的分支，或者使用其他方式备份当前项目</li>
+<li>删除项目下 package-lock.json 文件</li>
+</ol>
+<h2 id="升级步骤"><span>升级步骤</span><a onclick="window.location.hash = '升级步骤'" class="anchor">#</a></h2><h3 id="第一步---升级相关依赖"><span>第一步 - 升级相关依赖</span><a onclick="window.location.hash = '第一步---升级相关依赖'" class="anchor">#</a></h3><ul>
+<li>前往 <a href="https://update.angular.io/">https://update.angular.io/</a> 将项目升级到 Angular9。</li>
+<li>如果你有单独使用 <code>@angular/cdk</code> 请执行 <code>ng update @angular/cdk</code></li>
+<li>如果你有单独使用 <code>date-fns</code> 请先升级到 <code>2.x</code></li>
+<li>如果你有使用 <code>monaco-editor</code> 请先升级到 <code>0.20.x</code>, 使用 <code>monaco-editor-webpack-plugin</code> 时请将其升级到 <code>1.9.x</code></li>
+</ul>
+<h3 id="第二步---升级-ng-zorro"><span>第二步 - 升级 NG-ZORRO</span><a onclick="window.location.hash = '第二步---升级-ng-zorro'" class="anchor">#</a></h3><ul>
+<li>运行 <code>ng update ng-zorro-antd</code></li>
+<li>如果控制台出现警告消息请按提示修改对应代码</li>
+</ul>
+</section>
+  </article>

@@ -1,0 +1,87 @@
+<article class="markdown"><h1>快速上手<span class="subtitle"></span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/docs/getting-started.zh-CN.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#在线演示" nzTitle="在线演示"></nz-link><nz-link nzHref="#第一个本地实例" nzTitle="第一个本地实例"></nz-link><nz-link nzHref="#自行构建" nzTitle="自行构建"></nz-link><nz-link nzHref="#其他" nzTitle="其他"></nz-link>
+    </nz-anchor>
+</nz-affix>
+  <section class="markdown" ngNonBindable><p>NG-ZORRO 致力于提供给程序员<strong>愉悦</strong>的开发体验。</p>
+<blockquote style="border-color: red;"><p><strong>官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 Angular 及配套设施的正确开发方式。如果你刚开始学习前端或者 Angular ，将框架作为你的第一步可能不是最好的主意 —— 掌握好基础知识再来吧！</strong></p></blockquote>
+
+<h2 id="在线演示"><span>在线演示</span><a onclick="window.location.hash = '在线演示'" class="anchor">#</a></h2><p>最简单的使用方式参照以下 StackBlitz 演示，也推荐 Fork 本例来进行 <code>Bug Report</code>，注意不要在实际项目中这样使用。</p>
+<ul>
+<li><a href="https://stackblitz.com/edit/ng-zorro-antd-ivy">NG-ZORRO StackBlitz</a></li>
+</ul>
+<h2 id="第一个本地实例"><span>第一个本地实例</span><a onclick="window.location.hash = '第一个本地实例'" class="anchor">#</a></h2><p>实际项目开发中，你会需要对 TypeScript 代码的构建、调试、代理、打包部署等一系列工程化的需求。
+我们强烈建议使用官方的 <code>@angular/cli</code> 工具链辅助进行开发，下面我们用一个简单的实例来说明。</p>
+<h3 id="安装脚手架工具"><span>安装脚手架工具</span><a onclick="window.location.hash = '安装脚手架工具'" class="anchor">#</a></h3><blockquote>
+<p>如果你想了解更多CLI工具链的功能和命令，建议访问 <a href="https://angular.cn/cli">Angular</a> 了解更多。</p>
+</blockquote>
+<pre class="language-bash"><code>$ <span class="token function">npm</span> install -g <span class="token function">@angular/cli</span></code></pre>
+<h3 id="创建一个项目"><span>创建一个项目</span><a onclick="window.location.hash = '创建一个项目'" class="anchor">#</a></h3><blockquote>
+<p>在创建项目之前，请确保 <code>@angular/cli</code> 已被成功安装。</p>
+</blockquote>
+<p>执行以下命令，<code>@angular/cli</code> 会在当前目录下新建一个名称为 <code>PROJECT-NAME</code> 的文件夹，并自动安装好相应依赖。</p>
+<pre class="language-bash"><code>$ <span class="token function">ng</span> new PROJECT-NAME</code></pre>
+<h3 id="初始化配置"><span>初始化配置</span><a onclick="window.location.hash = '初始化配置'" class="anchor">#</a></h3><p>进入项目文件夹，执行以下命令后将自动完成 <code>ng-zorro-antd</code> 的初始化配置，包括引入国际化文件，导入模块，引入样式文件等工作。</p>
+<pre class="language-bash"><code>$ <span class="token function">ng</span> add <span class="token function">ng-zorro-antd</span></code></pre>
+<img style="display: block; border-radius: 4px; box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.2);" src="https://img.alicdn.com/tfs/TB19fFHdkxz61VjSZFtXXaDSVXa-680-243.svg">
+
+
+<p>开发者可以通过增加参数来完成个性化的初始化配置，例如国际化或者自定义主题等，详细可以参考 <a href="/docs/schematics/zh">脚手架</a> 部分。</p>
+<h3 id="开发调试"><span>开发调试</span><a onclick="window.location.hash = '开发调试'" class="anchor">#</a></h3><p>一键启动调试，运行成功后显示欢迎页面。</p>
+<pre class="language-bash"><code>$ <span class="token function">ng</span> serve --port 0 --open</code></pre>
+<img style="display: block;padding: 30px 30%;height: 260px;" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
+
+
+<h3 id="构建和部署"><span>构建和部署</span><a onclick="window.location.hash = '构建和部署'" class="anchor">#</a></h3><pre class="language-bash"><code>$ <span class="token function">ng</span> build --prod</code></pre>
+<p>入口文件会构建到 <code>dist</code> 目录中，你可以自由部署到不同环境中进行引用。</p>
+<h2 id="自行构建"><span>自行构建</span><a onclick="window.location.hash = '自行构建'" class="anchor">#</a></h2><p>如果想自己维护工作流，理论上你可以利用 Angular 生态圈中的 各种脚手架进行开发，如果遇到问题可参考我们所使用的 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/tree/master/integration">配置</a> 进行定制。</p>
+<h3 id="安装组件"><span>安装组件</span><a onclick="window.location.hash = '安装组件'" class="anchor">#</a></h3><pre class="language-bash"><code>$ <span class="token function">npm</span> install <span class="token function">ng-zorro-antd</span> --save</code></pre>
+<h3 id="引入样式"><span>引入样式</span><a onclick="window.location.hash = '引入样式'" class="anchor">#</a></h3><h4 id="使用全部组件样式"><span>使用全部组件样式</span><a onclick="window.location.hash = '使用全部组件样式'" class="anchor">#</a></h4><p>该配置将包含组件库的全部样式，如果只想使用某些组件请查看 <a href="/docs/getting-started/zh#%E4%BD%BF%E7%94%A8%E7%89%B9%E5%AE%9A%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F">使用特定组件样式</a> 配置。</p>
+<p>在 <code>angular.json</code> 中引入了</p>
+<pre class="language-json"><code><span class="token punctuation">&#123;</span>
+  <span class="token property">"styles"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"node_modules/ng-zorro-antd/ng-zorro-antd.min.css"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>在 <code>style.css</code> 中引入预构建样式文件</p>
+<pre class="language-css"><code><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"~ng-zorro-antd/ng-zorro-antd.min.css"</span><span class="token punctuation">;</span></span></code></pre>
+<p>在 <code>style.less</code> 中引入 less 样式文件</p>
+<pre class="language-less"><code><span class="token variable">@import</span> <span class="token string">"~ng-zorro-antd/ng-zorro-antd.less"</span><span class="token punctuation">;</span></code></pre>
+<h4 id="使用特定组件样式"><span>使用特定组件样式</span><a onclick="window.location.hash = '使用特定组件样式'" class="anchor">#</a></h4><blockquote>
+<p>由于组件之间的样式也存在依赖关系，单独引入多个组件的 CSS 可能导致 CSS 的冗余。</p>
+</blockquote>
+<p>使用特定组件样式时前需要先引入基本样式(所有组件的共用样式)。</p>
+<p>在 <code>style.css</code> 中引入预构建样式文件</p>
+<pre class="language-css"><code><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"~ng-zorro-antd/style/index.min.css"</span><span class="token punctuation">;</span></span> <span class="token comment" spellcheck="true">/* 引入基本样式 */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"~ng-zorro-antd/button/style/index.min.css"</span><span class="token punctuation">;</span></span> <span class="token comment" spellcheck="true">/* 引入组件样式 */</span></code></pre>
+<p>在 <code>style.less</code> 中引入 less 样式文件</p>
+<pre class="language-less"><code><span class="token variable">@import</span> <span class="token string">"~ng-zorro-antd/style/entry.less"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 引入基本样式 */</span>
+<span class="token variable">@import</span> <span class="token string">"~ng-zorro-antd/button/style/entry.less"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 引入组件样式 */</span></code></pre>
+<h3 id="引入组件模块"><span>引入组件模块</span><a onclick="window.location.hash = '引入组件模块'" class="anchor">#</a></h3><p>最后你需要将想要使用的组件模块引入到你的 <code>app.module.ts</code> 文件和<a href="https://angular.cn/guide/feature-modules">特性模块</a>中。</p>
+<p>以下面的 <code>NzButtonModule</code> 模块为例，先引入组件模块：</p>
+<pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> NgModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> NzButtonModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'ng-zorro-antd/button'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> AppComponent <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./app.component'</span><span class="token punctuation">;</span>
+
+@<span class="token function">NgModule</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  declarations<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    AppComponent
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    NzButtonModule
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppModule</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span></code></pre>
+<p>然后在模板中使用：</p>
+<pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">nz-button</span> <span class="token attr-name">nzType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Primary<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="其他"><span>其他</span><a onclick="window.location.hash = '其他'" class="anchor">#</a></h2><ul>
+<li><a href="/docs/i18n/zh">国际化配置</a></li>
+<li><a href="/docs/customize-theme/zh">自定义主题</a></li>
+<li><a href="/components/icon/zh">使用图标</a></li>
+</ul>
+</section>
+  </article>

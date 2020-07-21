@@ -1,21 +1,97 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div id="ng-content" [style.transform]="isDrawerOpen ? 'translateX(245px)' : null ">
+  <div class="page-wrapper">
+    <app-header [windowWidth]="windowWidth"
+                [page]="page"
+                [(language)]="language"
+                (languageChange)="switchLanguage($event)"
+                (versionChange)="navigateToVersion($event)">
+    </app-header>
+    <div class="main-wrapper">
+      <div nz-row>
+        <div nz-col
+             *ngIf="!showDrawer"
+             [nzXs]="24"
+             [nzSm]="24"
+             [nzMd]="6"
+             [nzLg]="6"
+             [nzXl]="5"
+             [nzXXl]="4"
+             class="main-menu">
+          <nz-affix [nzOffsetTop]="0">
+            <section class="main-menu-inner">
+              <ng-template [ngTemplateOutlet]="sideOrDrawerTpl"></ng-template>
+            </section>
+          </nz-affix>
+        </div>
+        <div nz-col
+             class="main-container main-container-component"
+             [nzXs]="24"
+             [nzSm]="24"
+             [nzMd]="18"
+             [nzLg]="18"
+             [nzXl]="19"
+             [nzXXl]="20">
+          <router-outlet></router-outlet>
+          <nz-contributors-list></nz-contributors-list>
+        </div>
+      </div>
+      <!-- 底部 -->
+      <div nz-row>
+        <div nz-col
+             [nzXs]="{span:24}"
+             [nzSm]="{span:24}"
+             [nzMd]="{span:24}"
+             [nzLg]="{span:18,offset:6}"
+             [nzXl]="{span:19,offset:5}"
+             [nzXXl]="{span:20,offset:4}">
+          <app-fixed-widgets
+            [theme]="theme"
+            (themeChange)="onThemeChange($event)"
+            [language]="language">
+          </app-fixed-widgets>
+          <nz-nav-bottom></nz-nav-bottom>
+          <app-footer [colorHex]="color" [language]="language" (colorChange)="changeColor($event)"></app-footer>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+<ng-template #sideOrDrawerTpl>
+  <ul nz-menu [nzMode]="'inline'" class="aside-container menu-site" [nzInlineIndent]="40">
+    <ng-container>
+      <li *ngFor="let group of routerList.intro" [nzTitle]="group.name">
+          <ul>
+            <ng-container>
+              <li nz-menu-item nzMatchRouter *ngFor="let component of group.children">
+                <a routerLink="{{component.path}}">
+                  <span>{{component.label}}</span>
+                  <span class="chinese">{{component.zh}}</span>
+                </a>
+              </li>
+            </ng-container>
+          </ul>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="page === 'components'">
+      <li nz-menu-group
+          *ngFor="let group of routerList.components"
+          [hidden]="group.language !== language"
+          [nzTitle]="group.name">
+        <ul>
+          <ng-container>
+            <li nz-menu-item nzMatchRouter *ngFor="let component of group.children">
+              <a routerLink="{{component.path}}">
+                <span>{{component.label}}</span>
+                <span class="chinese">{{component.zh}}</span>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+    </ng-container>
+
+  </ul>
+</ng-template>
+

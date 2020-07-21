@@ -1,0 +1,102 @@
+<article class="markdown"><h1>Server-side Rendering<span class="subtitle"></span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/docs/universal.en-US.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#installation-dependence" nzTitle="Installation dependence"></nz-link><nz-link nzHref="#modify-the-server-root-module" nzTitle="Modify the server root module"></nz-link><nz-link nzHref="#modify-the-server-environment" nzTitle="Modify the server environment"></nz-link><nz-link nzHref="#compile-and-run" nzTitle="Compile and run"></nz-link>
+    </nz-anchor>
+</nz-affix>
+  <section class="markdown" ngNonBindable><blockquote style="border-color: #faad14;">
+<p><strong>This guide assumes that you already know about <a href="https://angular.io/guide/universal">Server-side Rendering(SSR)</a>.</strong></p>
+<p>You can also start your project with <a href="https://angular.cn/guide/universal" target="_blank">NG-ZORRO/ng-zorro-universal-starter</a>.</p>
+</blockquote>
+
+<p>This guide is based on the popular <a href="https://expressjs.com/">Express</a> framework.</p>
+<h2 id="installation-dependence"><span>Installation dependence</span><a onclick="window.location.hash = 'installation-dependence'" class="anchor">#</a></h2><pre class="language-bash"><code>$ <span class="token function">ng</span> add @nguniversal/express-engine --clientProject <span class="token operator">&lt;</span>project-name<span class="token operator">></span></code></pre>
+<h2 id="modify-the-server-root-module"><span>Modify the server root module</span><a onclick="window.location.hash = 'modify-the-server-root-module'" class="anchor">#</a></h2><p><strong>app.server.module.ts</strong></p>
+<pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> NgModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ServerModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@angular/platform-server'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ModuleMapLoaderModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@nguniversal/module-map-ngfactory-loader'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> AppModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./app.module'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> AppComponent <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./app.component'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Import the require modules</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> NoopAnimationsModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@angular/platform-browser/animations'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> HttpClientModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@angular/common/http'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> en_US<span class="token punctuation">,</span> NZ_I18N<span class="token punctuation">,</span> NzI18nModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'ng-zorro-antd/i18n'</span><span class="token punctuation">;</span>
+
+@<span class="token function">NgModule</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    AppModule<span class="token punctuation">,</span>
+    ServerModule<span class="token punctuation">,</span>
+    ModuleMapLoaderModule<span class="token punctuation">,</span>
+    HttpClientModule<span class="token punctuation">,</span>
+    NoopAnimationsModule<span class="token punctuation">,</span>
+    NzI18nModule
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  bootstrap<span class="token punctuation">:</span> <span class="token punctuation">[</span>AppComponent<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  providers<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span> provide<span class="token punctuation">:</span> NZ_I18N<span class="token punctuation">,</span> useValue<span class="token punctuation">:</span> en_US <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppServerModule</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+</code></pre>
+<h2 id="modify-the-server-environment"><span>Modify the server environment</span><a onclick="window.location.hash = 'modify-the-server-environment'" class="anchor">#</a></h2><p><strong>server.ts</strong></p>
+<pre class="language-ts"><code><span class="token keyword">import</span> <span class="token string">'zone.js/dist/zone-node'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>enableProdMode<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Express Engine</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>ngExpressEngine<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@nguniversal/express-engine'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Import module map for lazy loading</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>provideModuleMap<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@nguniversal/module-map-ngfactory-loader'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token operator">*</span> as express <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>join<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'path'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Faster server renders w/ Prod mode (dev mode never needed)</span>
+<span class="token function">enableProdMode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Fix the `Event is not defined` error https://github.com/angular/universal/issues/844</span>
+global<span class="token punctuation">[</span><span class="token string">'Event'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Express server</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> PORT <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>PORT <span class="token operator">||</span> <span class="token number">4000</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> DIST_FOLDER <span class="token operator">=</span> <span class="token function">join</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'dist/browser'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// * NOTE :: leave this as require() since this file is built Dynamically from webpack</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span>AppServerModuleNgFactory<span class="token punctuation">,</span> LAZY_MODULE_MAP<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./dist/server/main'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)</span>
+app<span class="token punctuation">.</span><span class="token function">engine</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">,</span> <span class="token function">ngExpressEngine</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  bootstrap<span class="token punctuation">:</span> AppServerModuleNgFactory<span class="token punctuation">,</span>
+  providers<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token function">provideModuleMap</span><span class="token punctuation">(</span>LAZY_MODULE_MAP<span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'view engine'</span><span class="token punctuation">,</span> <span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'views'</span><span class="token punctuation">,</span> DIST_FOLDER<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Example Express Rest API endpoints</span>
+<span class="token comment" spellcheck="true">// app.get('/api/**', (req, res) => &#123; &#125;);</span>
+<span class="token comment" spellcheck="true">// Serve static files from /browser</span>
+app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'*.*'</span><span class="token punctuation">,</span> express<span class="token punctuation">.</span><span class="token keyword">static</span><span class="token punctuation">(</span>DIST_FOLDER<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  maxAge<span class="token punctuation">:</span> <span class="token string">'1y'</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// All regular routes use the Universal engine</span>
+app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> req <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Start up the Node server</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>PORT<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Node Express server listening on http://localhost:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>PORT<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="compile-and-run"><span>Compile and run</span><a onclick="window.location.hash = 'compile-and-run'" class="anchor">#</a></h2><pre class="language-bash"><code>$ <span class="token function">npm</span> run build:ssr <span class="token operator">&amp;&amp;</span> <span class="token function">npm</span> run serve:ssr <span class="token comment" spellcheck="true"># Running http://localhost:4000/</span></code></pre>
+</section>
+  </article>

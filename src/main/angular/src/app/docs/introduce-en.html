@@ -1,0 +1,102 @@
+<article class="markdown"><h1>Ant Design of Angular<span class="subtitle"></span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/docs/introduce.en-US.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#features" nzTitle="Features"></nz-link><nz-link nzHref="#environment-support" nzTitle="Environment Support"></nz-link><nz-link nzHref="#version" nzTitle="Version"></nz-link><nz-link nzHref="#angular-support" nzTitle="Angular Support"></nz-link><nz-link nzHref="#design-specification" nzTitle="Design Specification"></nz-link><nz-link nzHref="#installation" nzTitle="Installation"></nz-link><nz-link nzHref="#companies-using-ng-zorro-antd" nzTitle="Companies using ng-zorro-antd"></nz-link><nz-link nzHref="#contributing" nzTitle="Contributing"></nz-link><nz-link nzHref="#need-help" nzTitle="Need Help?"></nz-link>
+    </nz-anchor>
+</nz-affix>
+  <section class="markdown" ngNonBindable><p>Following the Ant Design specification, we developed an Angular UI library <code>ng-zorro-antd</code> that contains a set of high-quality components and demos for building rich, interactive user interfaces.</p>
+<div class="pic-plus">
+  <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
+  <span>+</span>
+  <img height="150" src="https://img.alicdn.com/tfs/TB1Z0PywTtYBeNjy1XdXXXXyVXa-186-200.svg">
+</div>
+
+<style>
+.pic-plus > * &#123;
+  display: inline-block !important;
+  vertical-align: middle;
+&#125;
+.pic-plus span &#123;
+  font-size: 30px;
+  color: #aaa;
+  margin: 0 20px;
+&#125;
+</style>
+
+<h2 id="features"><span>Features</span><a onclick="window.location.hash = 'features'" class="anchor">#</a></h2><ul>
+<li>An enterprise-class UI design language for web applications.</li>
+<li>A set of high-quality Angular components out of the box.</li>
+<li>Written in TypeScript with complete defined types.</li>
+<li>Support OnPush mode, high performance.</li>
+<li>Powerful theme customization in every detail.</li>
+<li>Internationalization support for dozens of languages.</li>
+</ul>
+<h2 id="environment-support"><span>Environment Support</span><a onclick="window.location.hash = 'environment-support'" class="anchor">#</a></h2><ul>
+<li>Modern browsers and Internet Explorer 11+ (with <a href="https://angular.io/guide/browser-support">polyfills</a>)</li>
+<li>Server-side Rendering</li>
+<li><a href="http://electron.atom.io/">Electron</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" /></a><br>IE / Edge</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /></a><br>Firefox</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /></a><br>Chrome</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /></a><br>Safari</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" /></a><br>Opera</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" /></a><br>Electron</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE11, Edge</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+</tr>
+</tbody></table>
+<h2 id="version"><span>Version</span><a onclick="window.location.hash = 'version'" class="anchor">#</a></h2><p><a href="https://www.npmjs.org/package/ng-zorro-antd"><img src="https://img.shields.io/npm/v/ng-zorro-antd.svg?style=flat-square" alt="npm package"></a></p>
+<h2 id="angular-support"><span>Angular Support</span><a onclick="window.location.hash = 'angular-support'" class="anchor">#</a></h2><p><code>ng-zorro-antd</code> keeps the same major version with <code>@angular/core</code>, now supports Angular <code>^9.0.0</code>.</p>
+<h2 id="design-specification"><span>Design Specification</span><a onclick="window.location.hash = 'design-specification'" class="anchor">#</a></h2><p><code>ng-zorro-antd</code> synchronizes design specification with <a href="https://ant.design/docs/spec/introduce">Ant Design</a> on a regular basis, you can check the <a href="https://nz-styles-syncer.now.sh/">log</a> online.</p>
+<h2 id="installation"><span>Installation</span><a onclick="window.location.hash = 'installation'" class="anchor">#</a></h2><p><strong>We recommend using <code>@angular/cli</code> to install</strong>，it not only makes development easier，but also allow you to take advantage of the rich ecosystem of angular packages and tooling.</p>
+<pre class="language-bash"><code>$ <span class="token function">ng</span> new PROJECT_NAME
+$ <span class="token function">cd</span> PROJECT_NAME
+$ <span class="token function">ng</span> add <span class="token function">ng-zorro-antd</span></code></pre>
+<blockquote>
+<p>More information about <code>@angular/cli</code> <a href="https://github.com/angular/angular-cli">here</a>.</p>
+</blockquote>
+<p>You can also install <code>ng-zorro-antd</code> with npm or yarn</p>
+<pre class="language-bash"><code>$ <span class="token function">npm</span> install <span class="token function">ng-zorro-antd</span></code></pre>
+<h2 id="companies-using-ng-zorro-antd"><span>Companies using ng-zorro-antd</span><a onclick="window.location.hash = 'companies-using-ng-zorro-antd'" class="anchor">#</a></h2><ul>
+<li><a href="http://www.alibaba.com/">Alibaba</a></li>
+<li><a href="http://www.aliyun.com/">Aliyun</a></li>
+<li><a href="https://www.thoughtworks.com/">ThoughtWorks</a></li>
+<li><a href="https://www.ververica.com/">Ververica</a></li>
+<li><a href="https://flink.apache.org/">Apache Flink</a></li>
+<li><a href="http://zeppelin.apache.org/">Apache Zeppelin</a></li>
+<li><a href="http://pag.company/">Process Automation Group</a></li>
+<li><a href="http://www.aisino.com/">AISINOCO</a></li>
+<li><a href="https://www.gongdao.com/">GongDao</a></li>
+<li><a href="http://www.uce.cn/">UC Express</a></li>
+<li><a href="https://qingflow.com/">Qingflow</a></li>
+<li><a href="http://datagrand.com/">DataGrand</a></li>
+<li><a href="https://www.scentbird.com/">ScentBird</a></li>
+<li><a href="https://www.sit.ac.nz/">Southern Institute of Technology</a></li>
+<li><a href="https://hub.hapify.io/">Hapify (Dynamic boilerplates tool)</a></li>
+</ul>
+<blockquote>
+<p>We list some users here, if your company or product uses ng-zorro-antd, let us know <a href="https://github.com/NG-ZORRO/ng-zorro-antd/issues/1142">here</a>!</p>
+</blockquote>
+<h2 id="contributing"><span>Contributing</span><a onclick="window.location.hash = 'contributing'" class="anchor">#</a></h2><p>Please read our <a href="https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> first.</p>
+<p>If you&#39;d like to help us improve ng-zorro-antd, just create a <a href="https://github.com/NG-ZORRO/ng-zorro-antd/pulls">Pull Request</a>. Feel free to report bugs and issues <a href="http://ng.ant.design/issue-helper/#/en">here</a>.</p>
+<blockquote>
+<p>If you&#39;re new to posting issues, we ask that you read <a href="http://www.catb.org/~esr/faqs/smart-questions.html"><em>How To Ask Questions The Smart Way</em></a>(This guide does not provide actual support services for this project!) and <a href="https://github.com/seajs/seajs/issues/545">How to Ask a Question in Open Source Community</a> and <a href="http://www.chiark.greenend.org.uk/~sgtatham/bugs.html">How to Report Bugs Effectively</a> prior to posting. Well written bug reports help us help you!</p>
+</blockquote>
+<h2 id="need-help"><span>Need Help?</span><a onclick="window.location.hash = 'need-help'" class="anchor">#</a></h2><p>For questions on how to use ng-zorro-antd, please post questions to <a href="http://stackoverflow.com/questions/tagged/ng-zorro-antd"><img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" /></a> using the <code>ng-zorro-antd</code> tag. If you&#39;re not finding what you need on stackoverflow, you can find us on <a href="https://gitter.im/ng-zorro/ng-zorro-antd"><img src="https://img.shields.io/gitter/room/ng-zorro/ng-zorro-antd.svg?style=flat-square" alt="Gitter"></a> as well.</p>
+<p>As always, we encourage experienced users to help those who are not familiar with <code>ng-zorro-antd</code>!</p>
+</section>
+  </article>

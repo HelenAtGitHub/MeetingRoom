@@ -1,0 +1,117 @@
+<article>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#components-space-demo-basic" nzTitle="基本用法"></nz-link><nz-link nzHref="#components-space-demo-vertical" nzTitle="垂直间距"></nz-link><nz-link nzHref="#components-space-demo-size" nzTitle="间距大小"></nz-link><nz-link nzHref="#components-space-demo-customize" nzTitle="自定义尺寸"></nz-link><nz-link nzHref="#api" nzTitle="API"></nz-link>
+    </nz-anchor>
+</nz-affix><section class="markdown">
+	<h1>Space<span class="subtitle">间距</span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/space/doc/index.zh-CN.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+	<section class="markdown" ngNonBindable>
+		<p>Set components spacing.</p>
+<h2 id="何时使用"><span>何时使用</span><a onclick="window.location.hash = '何时使用'" class="anchor">#</a></h2><p>Avoid components clinging together and set a unified space.</p>
+<pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> NzSpaceModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'ng-zorro-antd/space'</span><span class="token punctuation">;</span></code></pre>
+
+	</section>
+	
+	<h2>
+		<span>代码演示</span>
+		<i nz-icon nzType="appstore" class="code-box-expand-trigger" nz-tooltip nzTooltipTitle="展开全部代码" (click)="expandAllCode()"></i>
+	</h2>
+</section><div nz-row [nzGutter]="8">
+	<div nz-col [nzSpan]="24">
+		<nz-code-box
+  nzTitle="基本用法"
+  [nzId]="'components-space-demo-basic'"
+  nzSelector="nz-demo-space-basic"
+  [nzLink]="'components-space-demo-basic'"
+  nzGenerateCommand="ng g ng-zorro-antd:space-basic <name>"
+  nzComponentName="NzDemoSpaceBasicComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/space/demo/basic.md'">
+	<nz-demo-space-basic demo></nz-demo-space-basic>
+	<div intro ngNonBindable>
+		<p>相邻组件水平间距。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="垂直间距"
+  [nzId]="'components-space-demo-vertical'"
+  nzSelector="nz-demo-space-vertical"
+  [nzLink]="'components-space-demo-vertical'"
+  nzGenerateCommand="ng g ng-zorro-antd:space-vertical <name>"
+  nzComponentName="NzDemoSpaceVerticalComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/space/demo/vertical.md'">
+	<nz-demo-space-vertical demo></nz-demo-space-vertical>
+	<div intro ngNonBindable>
+		<p>相邻组件垂直间距。</p>
+<p>可以设置 <code>width: 100%</code> 独占一行。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="间距大小"
+  [nzId]="'components-space-demo-size'"
+  nzSelector="nz-demo-space-size"
+  [nzLink]="'components-space-demo-size'"
+  nzGenerateCommand="ng g ng-zorro-antd:space-size <name>"
+  nzComponentName="NzDemoSpaceSizeComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/space/demo/size.md'">
+	<nz-demo-space-size demo></nz-demo-space-size>
+	<div intro ngNonBindable>
+		<p>间距预设大、中、小三种大小。</p>
+<p>通过设置 <code>nzSize</code> 为 <code>large</code> <code>middle</code> 分别把间距设为大、中间距。若不设置 <code>nzSize</code>，则间距为小。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="自定义尺寸"
+  [nzId]="'components-space-demo-customize'"
+  nzSelector="nz-demo-space-customize"
+  [nzLink]="'components-space-demo-customize'"
+  nzGenerateCommand="ng g ng-zorro-antd:space-customize <name>"
+  nzComponentName="NzDemoSpaceCustomizeComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/space/demo/customize.md'">
+	<nz-demo-space-customize demo></nz-demo-space-customize>
+	<div intro ngNonBindable>
+		<p>自定义间距大小。</p>
+
+	</div>
+</nz-code-box>
+
+	</div>
+</div><section class="markdown api-container" ngNonBindable><h2 id="api"><span>API</span><a onclick="window.location.hash = 'api'" class="anchor">#</a></h2><h3 id="nz-space"><span>nz-space</span><label class="api-type-label component">component</label><a onclick="window.location.hash = 'nz-space'" class="anchor">#</a></h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+<th>支持全局配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[nzSize]</code></td>
+<td>间距大小</td>
+<td><code>small</code> | <code>middle</code> | <code>large</code> | <code>number</code></td>
+<td><code>small</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>[nzDirection]</code></td>
+<td>间距方向</td>
+<td><code>vertical</code> | <code>horizontal</code></td>
+<td><code>horizontal</code></td>
+<td></td>
+</tr>
+</tbody></table>
+</section></article>

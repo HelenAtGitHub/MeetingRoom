@@ -1,0 +1,115 @@
+<article class="markdown"><h1>Ant Design of Angular<span class="subtitle"></span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/docs/introduce.zh-CN.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#特性" nzTitle="特性"></nz-link><nz-link nzHref="#支持环境" nzTitle="支持环境"></nz-link><nz-link nzHref="#当前版本" nzTitle="当前版本"></nz-link><nz-link nzHref="#支持-angular-版本" nzTitle="支持 Angular 版本"></nz-link><nz-link nzHref="#设计规范" nzTitle="设计规范"></nz-link><nz-link nzHref="#安装" nzTitle="安装"></nz-link><nz-link nzHref="#链接" nzTitle="链接"></nz-link><nz-link nzHref="#谁在使用" nzTitle="谁在使用"></nz-link><nz-link nzHref="#如何贡献" nzTitle="如何贡献"></nz-link><nz-link nzHref="#社区互助" nzTitle="社区互助"></nz-link>
+    </nz-anchor>
+</nz-affix>
+  <section class="markdown" ngNonBindable><p><code>ng-zorro-antd</code> 是 Ant Design 的 Angular 实现，主要用于研发企业级中后台产品。</p>
+<div class="pic-plus">
+  <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
+  <span>+</span>
+  <img height="150" src="https://img.alicdn.com/tfs/TB1Z0PywTtYBeNjy1XdXXXXyVXa-186-200.svg">
+</div>
+
+<style>
+.pic-plus > * &#123;
+  display: inline-block !important;
+  vertical-align: middle;
+&#125;
+.pic-plus span &#123;
+  font-size: 30px;
+  color: #aaa;
+  margin: 0 20px;
+&#125;
+</style>
+
+
+<h2 id="特性"><span>特性</span><a onclick="window.location.hash = '特性'" class="anchor">#</a></h2><ul>
+<li>提炼自企业级中后台产品的交互语言和视觉风格。</li>
+<li>开箱即用的高质量 Angular 组件，与 Angular 保持同步升级。</li>
+<li>使用 TypeScript 构建，提供完整的类型定义文件。</li>
+<li>支持 OnPush 模式，性能卓越。</li>
+<li>数十个国际化语言支持。</li>
+<li>深入每个细节的主题定制能力。</li>
+</ul>
+<h2 id="支持环境"><span>支持环境</span><a onclick="window.location.hash = '支持环境'" class="anchor">#</a></h2><ul>
+<li>现代浏览器和 IE11 及以上（需要 <a href="https://angular.io/guide/browser-support">polyfills</a>）</li>
+<li>支持服务端渲染</li>
+<li><a href="http://electron.atom.io/">Electron</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" /></a><br>IE / Edge</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /></a><br>Firefox</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /></a><br>Chrome</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /></a><br>Safari</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" /></a><br>Opera</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/62.2.25/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" /></a><br>Electron</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE11, Edge</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+</tr>
+</tbody></table>
+<h2 id="当前版本"><span>当前版本</span><a onclick="window.location.hash = '当前版本'" class="anchor">#</a></h2><p><a href="https://www.npmjs.org/package/ng-zorro-antd"><img src="https://img.shields.io/npm/v/ng-zorro-antd.svg?style=flat-square" alt="npm package"></a></p>
+<h2 id="支持-angular-版本"><span>支持 Angular 版本</span><a onclick="window.location.hash = '支持-angular-版本'" class="anchor">#</a></h2><p><code>ng-zorro-antd</code> 与 <code>@angular/core</code> 保持相同的主版本号，目前支持 Angular <code>^9.0.0</code> 版本。</p>
+<h2 id="设计规范"><span>设计规范</span><a onclick="window.location.hash = '设计规范'" class="anchor">#</a></h2><p>与 Ant Design 设计规范定期同步，你可以在线查看<a href="https://nz-styles-syncer.now.sh/">同步日志</a>。</p>
+<h2 id="安装"><span>安装</span><a onclick="window.location.hash = '安装'" class="anchor">#</a></h2><p>我们强烈推荐官方的 <code>@angular/cli</code> 工具链辅助进行开发，在实际项目开发中，它可以很好的满足对 TypeScript 代码的构建、调试、代理、打包部署等一系列工程化的需求。</p>
+<pre class="language-bash"><code>$ <span class="token function">ng</span> new PROJECT_NAME
+$ <span class="token function">cd</span> PROJECT_NAME
+$ <span class="token function">ng</span> add <span class="token function">ng-zorro-antd</span></code></pre>
+<blockquote>
+<p>如果你想了解更多CLI工具链的功能和命令，建议访问 <a href="https://github.com/angular/angular-cli">Angular CLI</a> 了解更多</p>
+</blockquote>
+<h2 id="链接"><span>链接</span><a onclick="window.location.hash = '链接'" class="anchor">#</a></h2><ul>
+<li><a href="http://ng.ant.design">首页</a></li>
+<li><a href="https://angular.io/">Angular官方文档</a></li>
+<li><a href="https://cli.angular.io/">开发脚手架</a></li>
+<li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
+<li><a href="https://github.com/ReactiveX/rxjs">RxJS</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=cipchk.ng-zorro-vscode">VSCode Snippet 插件</a></li>
+</ul>
+<h2 id="谁在使用"><span>谁在使用</span><a onclick="window.location.hash = '谁在使用'" class="anchor">#</a></h2><ul>
+<li><a href="http://www.alibaba.com/">阿里巴巴</a></li>
+<li><a href="http://www.aliyun.com/">阿里云</a></li>
+<li><a href="https://www.thoughtworks.com/">思特沃克</a></li>
+<li><a href="https://www.gongdao.com/">共道科技</a></li>
+<li><a href="http://www.uce.cn/">优速快递</a></li>
+<li><a href="https://qingflow.com/">轻流</a></li>
+<li><a href="http://www.aisino.com/">航天信息股份有限公司</a></li>
+<li><a href="http://datagrand.com/">达观数据</a></li>
+<li><a href="https://www.ververica.com/">Ververica</a></li>
+<li><a href="https://flink.apache.org/">Apache Flink</a></li>
+<li><a href="http://zeppelin.apache.org/">Apache Zeppelin</a></li>
+<li><a href="http://pag.company/">Process Automation Group</a></li>
+<li><a href="https://www.scentbird.com/">ScentBird</a></li>
+<li><a href="https://www.sit.ac.nz/">Southern Institute of Technology</a></li>
+<li><a href="https://hub.hapify.io/">Hapify (Dynamic boilerplates tool)</a></li>
+</ul>
+<blockquote>
+<p>这里列出了部分使用者，如果你的公司和产品使用了 NG-ZORRO，欢迎到 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/issues/1142">这里</a> 留言。</p>
+</blockquote>
+<h2 id="如何贡献"><span>如何贡献</span><a onclick="window.location.hash = '如何贡献'" class="anchor">#</a></h2><p>在任何形式的参与前，请先阅读 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/CONTRIBUTING.md">贡献者文档</a>。如果你希望参与贡献，欢迎 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/pulls">Pull Request</a>，或给我们 <a href="http://ng.ant.design/issue-helper/#/en">报告 Bug</a>。</p>
+<blockquote>
+<p>强烈推荐阅读 <a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way">《提问的智慧》</a>、<a href="https://github.com/seajs/seajs/issues/545">《如何向开源社区提问题》</a> 和 <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html">《如何有效地报告 Bug》</a>、<a href="https://zhuanlan.zhihu.com/p/25795393">《如何向开源项目提交无法解答的问题》</a>，更好的问题更容易获得帮助。</p>
+</blockquote>
+<h2 id="社区互助"><span>社区互助</span><a onclick="window.location.hash = '社区互助'" class="anchor">#</a></h2><p>如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。</p>
+<p>通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 <code>ng-zorro-antd</code> 标签。</p>
+<ol>
+<li><a href="https://stackoverflow.com/questions/tagged/ng-zorro-antd">Stack Overflow</a>（English）</li>
+<li><a href="https://segmentfault.com/t/ng-zorro">Segment Fault</a>（中文）</li>
+<li><a href="https://gitter.im/ng-zorro/ng-zorro-antd"><img src="https://img.shields.io/gitter/room/ng-zorro/ng-zorro-antd.svg?style=flat-square" alt="Gitter"></a></li>
+<li>加入钉钉 NG-ZORRO 自助服务群（中文）</li>
+</ol>
+<img src="https://img.alicdn.com/tfs/TB1oRkkzy_1gK0jSZFqXXcpaXXa-750-990.jpg" width="300" loading="lazy" alt="ding talk qr-code">
+</section>
+  </article>

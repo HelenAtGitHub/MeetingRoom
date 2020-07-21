@@ -1,0 +1,55 @@
+<article class="markdown"><h1>贡献指南<span class="subtitle"></span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/docs/contributing.zh-CN.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#行为准则" nzTitle="行为准则"></nz-link><nz-link nzHref="#透明的开发" nzTitle="透明的开发"></nz-link><nz-link nzHref="#bugs" nzTitle="Bugs"></nz-link><nz-link nzHref="#新增功能" nzTitle="新增功能"></nz-link><nz-link nzHref="#第一次贡献" nzTitle="第一次贡献"></nz-link><nz-link nzHref="#贡献代码" nzTitle="贡献代码"></nz-link><nz-link nzHref="#如何提出-pull-request" nzTitle="如何提出 Pull Request"></nz-link><nz-link nzHref="#开发流程" nzTitle="开发流程"></nz-link>
+    </nz-anchor>
+</nz-affix>
+  <section class="markdown" ngNonBindable><p>这篇指南会指导你如何为 NG-ZORRO 贡献一份自己的力量，请在你要提 issue 或者 pull request 之前花几分钟来阅读一遍这篇指南。</p>
+<h2 id="行为准则"><span>行为准则</span><a onclick="window.location.hash = '行为准则'" class="anchor">#</a></h2><p>我们有一份 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/CODE_OF_CONDUCT.md">行为准则</a>，希望所有的贡献者都能遵守，请花时间阅读一遍全文以确保你能明白哪些是可以做的，哪些是不可以做的。</p>
+<h2 id="透明的开发"><span>透明的开发</span><a onclick="window.location.hash = '透明的开发'" class="anchor">#</a></h2><p>我们所有的工作都会放在 <a href="https://github.com/NG-ZORRO/ng-zorro-antd">GitHub</a> 上。不管是核心团队的成员还是外部贡献者的 pull request 都需要进过同样流程的 review。</p>
+<h2 id="bugs"><span>Bugs</span><a onclick="window.location.hash = 'bugs'" class="anchor">#</a></h2><p>我们使用 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/issues">GitHub Issues</a> 来做 bug 追踪。 如果你想要你发现的 bug 被快速解决，最好的办法就是通过我们提供的 <a href="https://ng.ant.design/issue-helper/#/zh">issue 小助手</a> 来提 issue。 并且能使用这个 <a href="https://stackblitz.com/edit/ng-zorro-antd-ivy">模板</a> 来提供重现。</p>
+<p>在你报告一个 bug 之前，请先确保已经搜索过已有的 issue 和阅读了我们的 <a href="docs/faq/zh">常见问题</a>。</p>
+<h2 id="新增功能"><span>新增功能</span><a onclick="window.location.hash = '新增功能'" class="anchor">#</a></h2><p>如果你有改进我们的 API 或者新增功能的想法，我们同样推荐你使用我们提供的 <a href="https://ng.ant.design/issue-helper/#/zh">issue 小助手</a> 来新建一个添加新功能的 issue。</p>
+<h2 id="第一次贡献"><span>第一次贡献</span><a onclick="window.location.hash = '第一次贡献'" class="anchor">#</a></h2><p>如果你还不清楚怎么在 GitHub 上提 Pull Request ，可以阅读下面这些文章来学习：</p>
+<ul>
+<li><a href="https://opensource.guide/zh-cn/how-to-contribute/">如何为开源做贡献</a></li>
+<li><a href="https://github.com/firstcontributions/first-contributions/blob/master/translations/README.chs.md">第一次参与开源</a></li>
+</ul>
+<p>为了能帮助你开始你的第一次尝试，我们用 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/labels/good%20first%20issue">Good First Issue</a> 标记了一些比较比较容易修复的 bug 和小功能。这些 issue 可以很好地做为你的首次尝试。</p>
+<p>如果你打算开始处理一个 issue，请先检查一下 issue 下面的留言以确保没有别人正在处理这个 issue。如果当前没有人在处理的话你可以留言告知其他人你将会处理这个 issue，以免别人重复劳动。</p>
+<p>如果之前有人留言说会处理这个 issue 但是一两个星期都没有动静，那么你也可以接手处理这个 issue，当然还是需要留言告知其他人。</p>
+<h2 id="贡献代码"><span>贡献代码</span><a onclick="window.location.hash = '贡献代码'" class="anchor">#</a></h2><p>NG ZORRO 团队会关注所有的 Pull Request，我们会 review 以及合并你的代码，也有可能要求你做一些修改或者告诉你我们为什么不能接受这样的修改。</p>
+<p><strong>在你发送 Pull Request 之前</strong>，请确认你是按照下面的步骤来做的：</p>
+<ol>
+<li>在项目根目录下运行了 <code>npm install</code>。</li>
+<li>如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。</li>
+<li>确认所有的测试都是通过的 <code>npm run test</code>。</li>
+<li>确保你的代码通过了 lint 检查 <code>npm run lint</code>。</li>
+<li>确保你的代码在提交之前经过了正确的 <a href="https://www.digitalocean.com/community/tutorials/how-to-rebase-and-update-a-pull-request">Rebase</a>。</li>
+<li>确保你的提交信息符合<a href="https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/CONTRIBUTING.md#-commit-message-guidelines">我们的 commit 规范</a>。</li>
+</ol>
+<h2 id="如何提出-pull-request"><span>如何提出 Pull Request</span><a onclick="window.location.hash = '如何提出-pull-request'" class="anchor">#</a></h2><ol>
+<li>fork <code>ng-zorro-antd</code> 仓库，以下所有操作均在 fork 之后的仓库上执行</li>
+<li>在 <code>master</code> 分支运行：<code>git remote add upstream https://github.com/NG-ZORRO/ng-zorro-antd.git</code></li>
+<li>在 <code>master</code> 分支运行: <code>git pull upstream master</code></li>
+<li>在 <code>master</code> 分支运行: <code>git push origin master</code></li>
+<li>切换到你要工作的 feature 分支 (例如有一个分支叫 <code>docs-fix</code>): <code>git checkout docs-fix</code></li>
+<li>在 <code>docs-fix</code> 分支运行: <code>git rebase origin/master</code></li>
+<li>在 <code>docs-fix</code> 分支修改代码，并 commit: <code>git commit -a</code>，按照我们 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/CONTRIBUTING.md#-commit-message-guidelines">commit 规范</a>进行填写。</li>
+<li>推送代码 <code>git push</code> (可能需要 <code>-f</code>)</li>
+<li>在 Github 上发起 Pull Request 请求</li>
+</ol>
+<h2 id="开发流程"><span>开发流程</span><a onclick="window.location.hash = '开发流程'" class="anchor">#</a></h2><p>在你 clone 了 <code>ng-zorro-antd</code>  的代码并且使用 <code>npm install</code> 安装完依赖后，你还可以运行下面几个常用的命令：</p>
+<ul>
+<li><code>npm start</code> 在本地运行 <code>NG-ZORRO</code> 的网站。</li>
+<li><code>npm run lint</code> 检查代码风格。</li>
+<li><code>npm test</code> 运行测试。</li>
+<li><code>npm run test:watch [name]</code> 运行某文件测试，并监视变化。</li>
+<li><code>npm run build:lib</code> 构建 <code>ng-zorro-antd</code> 到 <code>publish</code> 目录。</li>
+</ul>
+<p>如果在开发过程中遇到问题，可查看 GitHub 上的<a href="https://github.com/NG-ZORRO/ng-zorro-antd/wiki/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97">开发指南</a>。</p>
+</section>
+  </article>

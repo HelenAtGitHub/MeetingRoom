@@ -1,0 +1,198 @@
+<article class="markdown"><h1>定制主题<span class="subtitle"></span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/docs/customize-theme.zh-CN.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#定制方式" nzTitle="定制方式"></nz-link><nz-link nzHref="#官方主题" nzTitle="官方主题"></nz-link><nz-link nzHref="#主题切换" nzTitle="主题切换"></nz-link>
+    </nz-anchor>
+</nz-affix>
+  <section class="markdown" ngNonBindable><p>Ant Design 设计规范上支持一定程度的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于主色、圆角、边框和部分组件的视觉定制。</p>
+<p><img src="https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png" alt=""></p>
+<h2 id="定制方式"><span>定制方式</span><a onclick="window.location.hash = '定制方式'" class="anchor">#</a></h2><p>Ant Design 的样式使用了 <a href="http://lesscss.org/">Less</a> 作为开发语言，并定义了一系列全局/组件的样式变量，你可以根据需求进行相应调整，<a href="https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/components/style/themes/default.less">默认样式变量</a></p>
+<blockquote>
+<p>Ant Design React 的主题定制文件在 <code>ng-zorro-antd</code> 中同样可以使用。</p>
+</blockquote>
+<h3 id="初始化项目时定制主题"><span>初始化项目时定制主题</span><a onclick="window.location.hash = '初始化项目时定制主题'" class="anchor">#</a></h3><p>在初始化项目时 <code>ng add ng-zorro-antd</code> 时选择自定义主题即可自动配置好自定义主题的相关文件，修改 <code>src/theme.less</code> 文件内容就可以自定义主题。</p>
+<h3 id="手动修改"><span>手动修改</span><a onclick="window.location.hash = '手动修改'" class="anchor">#</a></h3><p>在 <code>src</code> 目录下建立一个单独的 <code>theme.less</code> 文件，在 <code>angular.json</code> 文件的 <code>styles</code> 列表加入该文件</p>
+<pre class="language-json"><code>...
+  <span class="token property">"styles"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    ...
+    <span class="token string">"src/theme.less"</span>
+    ...
+  <span class="token punctuation">]</span>
+...</code></pre>
+<p><code>theme.less</code> 样例如下</p>
+<blockquote>
+<p>在样例中通过修改 <code>@primary-color</code> 的数值将 <code>ng-zorro-antd</code> 的基础色修改为 <code>#f5222d</code>，开发者可以根据实际需求自由修改。</p>
+</blockquote>
+<pre class="language-css"><code>// -------- 引入官方提供的 less 样式入口文件 -----------
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"../node_modules/ng-zorro-antd/ng-zorro-antd.less"</span><span class="token punctuation">;</span></span>
+
+// -------- 自定义参数覆盖 -----------
+<span class="token atrule"><span class="token rule">@primary-color</span>          <span class="token punctuation">:</span> #f5222d<span class="token punctuation">;</span></span></code></pre>
+<h3 id="在-webpack-中定制主题"><span>在 webpack 中定制主题</span><a onclick="window.location.hash = '在-webpack-中定制主题'" class="anchor">#</a></h3><p>Angular CLI 提供了 <a href="https://www.npmjs.com/package/@angular-builders/custom-webpack">custom-webpack</a> 的 builder，可以通过该 builder 轻松的调整 webpack 中 <a href="https://github.com/webpack-contrib/less-loader">less-loader</a> 的配置来进行主题配置。</p>
+<ol>
+<li>在 <code>angular.json</code> 中引入 <code>ng-zorro-antd.less</code> 文件</li>
+</ol>
+<pre class="language-json"><code><span class="token punctuation">&#123;</span>
+  <span class="token property">"styles"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"node_modules/ng-zorro-antd/ng-zorro-antd.less"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<ol start="2">
+<li>安装 <code>@angular-builders/custom-webpack</code> builder</li>
+</ol>
+<pre class="language-bash"><code><span class="token function">npm</span> i -D @angular-builders/custom-webpack</code></pre>
+<ol start="3">
+<li>新建 webpack 配置文件 <code>extra-webpack.config.js</code></li>
+</ol>
+<pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        test   <span class="token punctuation">:</span> <span class="token regex">/\.less$/</span><span class="token punctuation">,</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'less-loader'</span><span class="token punctuation">,</span>
+        options<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+          modifyVars<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span> <span class="token comment" spellcheck="true">// 修改主题变量</span>
+            <span class="token string">'primary-color'</span><span class="token punctuation">:</span> <span class="token string">'#1DA57A'</span><span class="token punctuation">,</span>
+            <span class="token string">'link-color'</span><span class="token punctuation">:</span> <span class="token string">'#1DA57A'</span><span class="token punctuation">,</span>
+            <span class="token string">'border-radius-base'</span><span class="token punctuation">:</span> <span class="token string">'2px'</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          javascriptEnabled<span class="token punctuation">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+</code></pre>
+<ol start="4">
+<li>在 <code>angular.json</code> 中配置自定义 builder</li>
+</ol>
+<pre class="language-diff"><code>  "architect": &#123;
+    "build": &#123;
+<span class="token deleted">-     "builder": "@angular-devkit/build-angular:browser",</span>
+<span class="token inserted">+     "builder": "@angular-builders/custom-webpack:browser",</span>
+      "options": &#123;
+<span class="token inserted">+        "customWebpackConfig": &#123;</span>
+<span class="token inserted">+          "path": "./extra-webpack.config.js",</span>
+<span class="token inserted">+          "mergeStrategies": &#123;</span>
+<span class="token inserted">+            "module.rules": "append"</span>
+<span class="token inserted">+          &#125;,</span>
+<span class="token inserted">+          "replaceDuplicatePlugins": true</span>
+<span class="token inserted">+        &#125;</span>
+        ...
+      &#125;,
+      ...
+    &#125;,
+    "serve": &#123;
+<span class="token deleted">-      "builder": "@angular-devkit/build-angular:dev-server",</span>
+<span class="token inserted">+      "builder": "@angular-builders/custom-webpack:dev-server",</span>
+       ...
+    &#125;
+    ...
+  &#125;</code></pre>
+<p>更多在 Angular CLI 中定制 webpack 的文章可以参考</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@angular-builders/custom-webpack">Angular Builder Document</a></li>
+<li><a href="https://alligator.io/angular/custom-webpack-config/">Angular CLI: Custom webpack Config</a></li>
+<li><a href="https://netbasal.com/customize-webpack-configuration-in-your-angular-application-d09683f6bd22">Customize Webpack Configuration in Your Angular Application</a></li>
+</ul>
+<p>全部可被自定义 less 变量可以参考 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/scripts/site/_site/doc/theme.less">这里</a>。</p>
+<h2 id="官方主题"><span>官方主题</span><a onclick="window.location.hash = '官方主题'" class="anchor">#</a></h2><p>我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。</p>
+<ul>
+<li>🌑 暗黑主题（9+ 支持）</li>
+<li>📦 紧凑主题（9+ 支持）</li>
+</ul>
+<h3 id="方式一"><span>方式一</span><a onclick="window.location.hash = '方式一'" class="anchor">#</a></h3><p>是在样式文件全量引入 <code>ng-zorro-antd.dark.less</code> 或 <code>ng-zorro-antd.compact.less</code> 覆盖主题变量。</p>
+<pre class="language-less"><code><span class="token variable">@import</span> <span class="token string">"~ng-zorro-antd/ng-zorro-antd.dark.less"</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 引入官方提供的暗色 less 样式文件</span>
+<span class="token variable">@import</span> <span class="token string">"~ng-zorro-antd/ng-zorro-antd.compact.less"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 引入官方提供的紧凑 less 样式文件</span></code></pre>
+<h3 id="方式二"><span>方式二</span><a onclick="window.location.hash = '方式二'" class="anchor">#</a></h3><p>如果项目不使用 Less，可在 CSS 文件或者 <code>angular.json</code> 的 <code>styles</code> 字段中，全量引入 <code>ng-zorro-antd.dark.css</code> 或者 <code>ng-zorro-antd.compact.css</code>。</p>
+<p>样式文件中：</p>
+<pre class="language-css"><code><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"~ng-zorro-antd/ng-zorro-antd.dark.css"</span><span class="token punctuation">;</span></span></code></pre>
+<p>angular.json 中</p>
+<pre class="language-json"><code><span class="token punctuation">&#123;</span>
+  <span class="token property">"build"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"options"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"styles"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"node_modules/ng-zorro-antd/ng-zorro-antd.dark.css"</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="方式三"><span>方式三</span><a onclick="window.location.hash = '方式三'" class="anchor">#</a></h3><p>在 webpack中 使用 less-loader 按需引入</p>
+<pre class="language-javascript"><code><span class="token keyword">const</span> darkThemeVars <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ng-zorro-antd/dark-theme'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> compactThemeVars <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ng-zorro-antd/compact-theme'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        test   <span class="token punctuation">:</span> <span class="token regex">/\.less$/</span><span class="token punctuation">,</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'less-loader'</span><span class="token punctuation">,</span>
+        options<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+          modifyVars<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token string">'hack'</span><span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`true;@import "</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>require<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'ng-zorro-antd/style/color/colorPalette.less'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">";`</span></span><span class="token punctuation">,</span>
+            <span class="token operator">...</span>darkThemeVars<span class="token punctuation">,</span>
+            <span class="token operator">...</span>compactThemeVars
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          javascriptEnabled<span class="token punctuation">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="主题切换"><span>主题切换</span><a onclick="window.location.hash = '主题切换'" class="anchor">#</a></h2><p>当使用 @angular/cli 的方式配置主题时必须为每个主题单独打包应用，当你想切换主题而不重新加载应用时（就像这个网站），你可以使用下面的方法将主题编译到单独的样式文件，并在运行时切换：</p>
+<p>注意：确保与主题变量相关的样式存在全局样式中，而不是组件样式中，因为组件样式优先级更高将会导致样式无法被覆盖。</p>
+<ol>
+<li>安装依赖</li>
+</ol>
+<pre class="language-bash"><code><span class="token function">npm</span> i <span class="token function">less</span> -D less-plugin-clean-css -D</code></pre>
+<ol start="2">
+<li>编写脚本</li>
+</ol>
+<p>以黑暗主题为例，使用 <code>less</code> 编译应用的样式入口文件，并且在 <code>modifyVars</code> 参数中替换样式变量，并输出到目标位置。</p>
+<pre class="language-js"><code><span class="token keyword">const</span> less <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'less'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> LessPluginCleanCSS <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'less-plugin-clean-css'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> darkThemeVars <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ng-zorro-antd/dark-theme'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> appStyles <span class="token operator">=</span> <span class="token string">'path/src/styles.less'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 应用的样式入口文件</span>
+<span class="token keyword">const</span> themeContent <span class="token operator">=</span> <span class="token template-string"><span class="token string">`@import '</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>appStyles<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">';`</span></span><span class="token punctuation">;</span>
+
+less<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>themeContent<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  javascriptEnabled<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">LessPluginCleanCSS</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> advanced<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  modifyVars<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token operator">...</span>darkThemeVars
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>
+    <span class="token comment" spellcheck="true">// 主题样式的输出文件</span>
+    <span class="token string">'path/assets/themes/style.dark.css'</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">.</span>css
+  <span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment" spellcheck="true">// 记录渲染错误</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<ol start="3">
+<li>运行时切换样式</li>
+</ol>
+<p>动态创建 <code>link</code> 标签，将样式文件动态加载在应用中，反之移除。</p>
+<pre class="language-ts"><code><span class="token function">changeTheme</span><span class="token punctuation">(</span>theme<span class="token punctuation">:</span> <span class="token string">'default'</span> <span class="token operator">|</span> <span class="token string">'dark'</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>theme <span class="token operator">===</span> <span class="token string">'dark'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> style <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'link'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    style<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'text/css'</span><span class="token punctuation">;</span>
+    style<span class="token punctuation">.</span>rel <span class="token operator">=</span> <span class="token string">'stylesheet'</span><span class="token punctuation">;</span>
+    style<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'dark-theme'</span><span class="token punctuation">;</span>
+    style<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'assets/themes/style.dark.css'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> dom <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'dark-theme'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>dom<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      dom<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+</section>
+  </article>

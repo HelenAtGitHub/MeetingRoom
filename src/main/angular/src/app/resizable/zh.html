@@ -1,0 +1,318 @@
+<article>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#components-resizable-demo-basic" nzTitle="基本使用"></nz-link><nz-link nzHref="#components-resizable-demo-customize" nzTitle="自定义"></nz-link><nz-link nzHref="#components-resizable-demo-lock-aspect-ratio" nzTitle="锁定比例"></nz-link><nz-link nzHref="#components-resizable-demo-preview" nzTitle="预览"></nz-link><nz-link nzHref="#components-resizable-demo-grid" nzTitle="栅格"></nz-link><nz-link nzHref="#components-resizable-demo-layout" nzTitle="布局"></nz-link><nz-link nzHref="#components-resizable-demo-drawer" nzTitle="抽屉"></nz-link><nz-link nzHref="#components-resizable-demo-table" nzTitle="表格"></nz-link><nz-link nzHref="#api" nzTitle="API"></nz-link>
+    </nz-anchor>
+</nz-affix><section class="markdown">
+	<h1>Resizable<span class="subtitle">调整尺寸</span><span class="widget"></span>
+	<a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/doc/index.zh-CN.md" target="_blank" rel="noopener noreferrer">
+		<i nz-icon nzType="edit"></i></a>
+</h1>
+	<section class="markdown" ngNonBindable>
+		<blockquote style="border-color: #faad14;">
+<p>NG-ZORRO 实验性功能是指已发布但不稳定或者还未准备好用于生产环境的功能。</p>
+<p>开发者或用户可以选择在正式发布前使用这些功能，但是每次发布版本时都可能存在 <strong>breaking changes</strong>。</p>
+</blockquote><p>调整元素尺寸。</p>
+<ul>
+<li>支持释放前预览提高性能</li>
+<li>支持栅格系统</li>
+<li>支持自定义调整手柄和预览样式</li>
+</ul>
+<h2 id="何时使用"><span>何时使用</span><a onclick="window.location.hash = '何时使用'" class="anchor">#</a></h2><p>当你想调整元素尺寸时.</p>
+<h3 id="引入模块"><span>引入模块</span><a onclick="window.location.hash = '引入模块'" class="anchor">#</a></h3><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> NzResizableModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'ng-zorro-antd/resizable'</span><span class="token punctuation">;</span></code></pre>
+<h3 id="引入样式"><span>引入样式</span><a onclick="window.location.hash = '引入样式'" class="anchor">#</a></h3><pre class="language-less"><code><span class="token variable">@import</span> <span class="token string">"node_modules/ng-zorro-antd/resizable/style/entry.less"</span></code></pre>
+
+	</section>
+	
+	<h2>
+		<span>代码演示</span>
+		<i nz-icon nzType="appstore" class="code-box-expand-trigger" nz-tooltip nzTooltipTitle="展开全部代码" (click)="expandAllCode()"></i>
+	</h2>
+</section><div nz-row [nzGutter]="8">
+	<div nz-col [nzSpan]="24">
+		<nz-code-box
+  nzTitle="基本使用"
+  [nzId]="'components-resizable-demo-basic'"
+  nzSelector="nz-demo-resizable-basic"
+  [nzLink]="'components-resizable-demo-basic'"
+  nzGenerateCommand="ng g ng-zorro-antd:resizable-basic <name>"
+  nzComponentName="NzDemoResizableBasicComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/demo/basic.md'">
+	<nz-demo-resizable-basic demo></nz-demo-resizable-basic>
+	<div intro ngNonBindable>
+		<p>基本使用。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="自定义"
+  [nzId]="'components-resizable-demo-customize'"
+  nzSelector="nz-demo-resizable-customize"
+  [nzLink]="'components-resizable-demo-customize'"
+  nzGenerateCommand="ng g ng-zorro-antd:resizable-customize <name>"
+  nzComponentName="NzDemoResizableCustomizeComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/demo/customize.md'">
+	<nz-demo-resizable-customize demo></nz-demo-resizable-customize>
+	<div intro ngNonBindable>
+		<p>自定义拖拽柄样式。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="锁定比例"
+  [nzId]="'components-resizable-demo-lock-aspect-ratio'"
+  nzSelector="nz-demo-resizable-lock-aspect-ratio"
+  [nzLink]="'components-resizable-demo-lock-aspect-ratio'"
+  nzGenerateCommand="ng g ng-zorro-antd:resizable-lock-aspect-ratio <name>"
+  nzComponentName="NzDemoResizableLockAspectRatioComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/demo/lock-aspect-ratio.md'">
+	<nz-demo-resizable-lock-aspect-ratio demo></nz-demo-resizable-lock-aspect-ratio>
+	<div intro ngNonBindable>
+		<p>锁定宽高比。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="预览"
+  [nzId]="'components-resizable-demo-preview'"
+  nzSelector="nz-demo-resizable-preview"
+  [nzLink]="'components-resizable-demo-preview'"
+  nzGenerateCommand="ng g ng-zorro-antd:resizable-preview <name>"
+  nzComponentName="NzDemoResizablePreviewComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/demo/preview.md'">
+	<nz-demo-resizable-preview demo></nz-demo-resizable-preview>
+	<div intro ngNonBindable>
+		<p>在应用尺寸前预览。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="栅格"
+  [nzId]="'components-resizable-demo-grid'"
+  nzSelector="nz-demo-resizable-grid"
+  [nzLink]="'components-resizable-demo-grid'"
+  nzGenerateCommand="ng g ng-zorro-antd:resizable-grid <name>"
+  nzComponentName="NzDemoResizableGridComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/demo/grid.md'">
+	<nz-demo-resizable-grid demo></nz-demo-resizable-grid>
+	<div intro ngNonBindable>
+		<p>配合栅格使用</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="布局"
+  [nzId]="'components-resizable-demo-layout'"
+  nzSelector="nz-demo-resizable-layout"
+  [nzLink]="'components-resizable-demo-layout'"
+  nzGenerateCommand="ng g ng-zorro-antd:resizable-layout <name>"
+  nzComponentName="NzDemoResizableLayoutComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/demo/layout.md'">
+	<nz-demo-resizable-layout demo></nz-demo-resizable-layout>
+	<div intro ngNonBindable>
+		<p>调整布局尺寸。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="抽屉"
+  [nzId]="'components-resizable-demo-drawer'"
+  nzSelector="nz-demo-resizable-drawer"
+  [nzLink]="'components-resizable-demo-drawer'"
+  nzGenerateCommand="ng g ng-zorro-antd:resizable-drawer <name>"
+  nzComponentName="NzDemoResizableDrawerComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/demo/drawer.md'">
+	<nz-demo-resizable-drawer demo></nz-demo-resizable-drawer>
+	<div intro ngNonBindable>
+		<p>调整抽屉宽度。</p>
+
+	</div>
+</nz-code-box>
+<nz-code-box
+  nzTitle="表格"
+  [nzId]="'components-resizable-demo-table'"
+  nzSelector="nz-demo-resizable-table"
+  [nzLink]="'components-resizable-demo-table'"
+  nzGenerateCommand="ng g ng-zorro-antd:resizable-table <name>"
+  nzComponentName="NzDemoResizableTableComponent"
+  nzIframeSource="null"
+  [nzIframeHeight]="null"
+  [nzHref]="'https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/components/resizable/demo/table.md'">
+	<nz-demo-resizable-table demo></nz-demo-resizable-table>
+	<div intro ngNonBindable>
+		<p>调整表头宽度。</p>
+
+	</div>
+</nz-code-box>
+
+	</div>
+</div><section class="markdown api-container" ngNonBindable><h2 id="api"><span>API</span><a onclick="window.location.hash = 'api'" class="anchor">#</a></h2><h3 id="[nz-resizable]"><span>[nz-resizable]</span><label class="api-type-label directive">directive</label><a onclick="window.location.hash = '[nz-resizable]'" class="anchor">#</a></h3><p>声明在需要调整尺寸的元素上，元素 <code>position</code> 属性必须为 <code>&#39;relative&#39; | &#39;absolute&#39; | &#39;fixed&#39; |&#39;sticky&#39;</code> 之一，默认会自动设置为 <code>&#39;relative&#39;</code>。</p>
+<pre class="language-ts"><code><span class="token keyword">interface</span> <span class="token class-name">NzResizeEvent</span> <span class="token punctuation">&#123;</span>
+  width<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+  height<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+  col<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+  mouseEvent<span class="token operator">?</span><span class="token punctuation">:</span> MouseEvent
+<span class="token punctuation">&#125;</span></code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[nzBounds]</td>
+<td>调整尺寸的边界</td>
+<td><code>&#39;window&#39; | &#39;parent&#39; | ElementRef&lt;HTMLElement&gt;</code></td>
+<td><code>parent</code></td>
+</tr>
+<tr>
+<td>[nzMaxHeight]</td>
+<td>最大高度(超过边界部分忽略)</td>
+<td><code>number</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>[nzMaxWidth]</td>
+<td>最大宽度(超过边界部分忽略)</td>
+<td><code>number</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>[nzMinHeight]</td>
+<td>最小高度</td>
+<td><code>number</code></td>
+<td><code>40</code></td>
+</tr>
+<tr>
+<td>[nzMinWidth]</td>
+<td>最小宽度</td>
+<td><code>number</code></td>
+<td><code>40</code></td>
+</tr>
+<tr>
+<td>[nzGridColumnCount]</td>
+<td>栅格列数(-1 为不栅格)</td>
+<td><code>number</code></td>
+<td><code>-1</code></td>
+</tr>
+<tr>
+<td>[nzMaxColumn]</td>
+<td>栅格最大列数</td>
+<td><code>number</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>[nzMinColumn]</td>
+<td>栅格最小列数</td>
+<td><code>number</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>[nzLockAspectRatio]</td>
+<td>锁定宽高比</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>[nzPreview]</td>
+<td>开启预览</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>[nzDisabled]</td>
+<td>禁用</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>(nzResize)</td>
+<td>调整尺寸时的事件</td>
+<td><code>EventEmitter&lt;NzResizeEvent&gt;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>(nzResizeStart)</td>
+<td>开始调整尺寸时的事件</td>
+<td><code>EventEmitter&lt;NzResizeEvent&gt;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>(nzResizeEnd)</td>
+<td>结束调整尺寸时的事件</td>
+<td><code>EventEmitter&lt;NzResizeEvent&gt;</code></td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h3 id="nz-resize-handle"><span>nz-resize-handle</span><label class="api-type-label component">component</label><a onclick="window.location.hash = 'nz-resize-handle'" class="anchor">#</a></h3><p>定义调整手柄及方向。</p>
+<pre class="language-ts"><code>type NzResizeDirection <span class="token operator">=</span> <span class="token string">'top'</span> <span class="token operator">|</span> <span class="token string">'right'</span> <span class="token operator">|</span> <span class="token string">'bottom'</span> <span class="token operator">|</span> <span class="token string">'left'</span> <span class="token operator">|</span> <span class="token string">'topRight'</span> <span class="token operator">|</span> <span class="token string">'bottomRight'</span> <span class="token operator">|</span> <span class="token string">'bottomLeft'</span> <span class="token operator">|</span> <span class="token string">'topLeft'</span><span class="token punctuation">;</span></code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[nzDirection]</td>
+<td>调整方向</td>
+<td><code>NzResizeDirection</code></td>
+<td><code>&#39;bottomRight&#39;</code></td>
+</tr>
+</tbody></table>
+<h3 id="nz-resize-handles"><span>nz-resize-handles</span><label class="api-type-label component">component</label><a onclick="window.location.hash = 'nz-resize-handles'" class="anchor">#</a></h3><p>定义调整手柄的快捷组件。</p>
+<pre class="language-ts"><code><span class="token keyword">const</span> DEFAULT_RESIZE_DIRECTION<span class="token punctuation">:</span> NzResizeDirection<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'bottomRight'</span><span class="token punctuation">,</span> <span class="token string">'topRight'</span><span class="token punctuation">,</span> <span class="token string">'bottomLeft'</span><span class="token punctuation">,</span> <span class="token string">'topLeft'</span><span class="token punctuation">,</span> <span class="token string">'bottom'</span><span class="token punctuation">,</span> <span class="token string">'right'</span><span class="token punctuation">,</span> <span class="token string">'top'</span><span class="token punctuation">,</span> <span class="token string">'left'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[nzDirections]</td>
+<td>需要添加那些调整手柄的方向</td>
+<td><code>NzResizeDirection[]</code></td>
+<td><code>DEFAULT_RESIZE_DIRECTION</code></td>
+</tr>
+</tbody></table>
+<h3 id="样式"><span>样式</span><a onclick="window.location.hash = '样式'" class="anchor">#</a></h3><p>组件样式只包含了必要的位置属性和简单的样式，你可以通过覆写下列类名自定义样式。</p>
+<ul>
+<li><code>.nz-resizable</code> <code>nz-resizable</code> 组件命名空间</li>
+<li><code>.nz-resizable-resizing</code> 正在调整尺寸时被添加到  <code>nz-resizable</code> 上</li>
+<li><code>.nz-resizable-preview</code> 开启预览时幽灵元素的类名</li>
+<li><code>.nz-resizable-handle-box-hover</code> 当鼠标悬停在 <code>nz-resizable</code> 上时被添加到 <code>nz-resize-handle</code> 上。</li>
+<li><code>.nz-resizable-handle</code> 调整手柄命名空间及各方向类名<ul>
+<li><code>.nz-resizable-handle-top</code></li>
+<li><code>.nz-resizable-handle-left</code></li>
+<li><code>.nz-resizable-handle-bottom</code></li>
+<li><code>.nz-resizable-handle-right</code></li>
+<li><code>.nz-resizable-handle-topRight</code></li>
+<li><code>.nz-resizable-handle-topLeft</code></li>
+<li><code>.nz-resizable-handle-bottomRight</code></li>
+<li><code>.nz-resizable-handle-bottomLeft</code></li>
+</ul>
+</li>
+</ul>
+</section></article>
