@@ -21,20 +21,10 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
-                "output": "/assets/"
-              },
-              {
-                "glob": "**/*",
-                "input": "./node_modules/monaco-editor/min/vs",
-                "output": "/assets/vs/"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -133,6 +123,6 @@
   },
   "defaultProject": "angular",
   "cli": {
-    "analytics": "25f2c3d9-419b-4808-a153-daa314d78b36"
+    "analytics": "d7b90d77-f249-46ff-a535-6056d737d399"
   }
 }
