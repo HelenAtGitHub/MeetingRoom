@@ -12,13 +12,13 @@ export const ROUTER_LIST = {
                 },
                 {
                     "label": "Role Manager",
-                    "path": "administrator/Roles",
+                    "path": "administrator/roles",
                     "zh": "",
                     "experimental": false
                 },
                 {
                     "label": "Permission Manager",
-                    "path": "administrator/permission",
+                    "path": "administrator/permissions",
                     "zh": "",
                     "experimental": false
                 }

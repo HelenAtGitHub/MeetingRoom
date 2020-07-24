@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,12 +17,12 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { UsersComponent } from './administrator/users.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavigationComponent } from './layout/header/navigation.component';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table'
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,10 +32,7 @@ import { NzTableModule } from 'ng-zorro-antd/table'
     NavigationComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    AppRoutingModule,
+    CommonModule,
     NzButtonModule,
     NzSelectModule,
     NzGridModule,
@@ -49,13 +45,13 @@ import { NzTableModule } from 'ng-zorro-antd/table'
     NzI18nModule,
     NzMessageModule,
     NzBadgeModule,
-    HttpClientModule,
     NzBreadCrumbModule,
     NzPageHeaderModule,
     NzCardModule,
-    NzTableModule
+    NzTableModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }

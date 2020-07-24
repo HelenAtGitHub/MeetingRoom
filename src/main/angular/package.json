@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
     "@ant-design/icons-angular": "^9.0.1",
+    "moment": "^2.27.0",
     "ng-zorro-antd": "^9.3.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
