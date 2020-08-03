@@ -9,5 +9,8 @@ Attendance:Yi Yu, Shi Yin , Xia Yongming</br>
 Meeting Content: </br>
   Yi Yu -- add flutter homepage </br>
 
-Planning: 软件自更新调研 --Yu Yi
+Planning: </br>
+软件自更新调研,会议室预订页面 --Yu Yi  </br>
+用户的CURD --shi yin   </br>
+会议室CURD  -- xia yongming </br>
 
