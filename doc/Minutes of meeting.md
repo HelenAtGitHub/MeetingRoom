@@ -7,5 +7,7 @@ Meeting Content:
 #### 08/03 2020 changzhi 6th floor
 Attendance:Yi Yu, Shi Yin , Xia Yongming</br>
 Meeting Content: </br>
-  Yi Yu -- add flutter homepage 
+  Yi Yu -- add flutter homepage </br>
+
+Planning: 软件自更新调研 --Yu Yi
 
