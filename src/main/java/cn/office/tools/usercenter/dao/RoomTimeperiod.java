@@ -3,6 +3,7 @@ package cn.office.tools.usercenter.dao;
 //import java.time;
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class RoomTimeperiod {
     private int id;
