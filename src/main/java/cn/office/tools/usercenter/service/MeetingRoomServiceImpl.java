@@ -20,13 +20,13 @@ public class MeetingRoomServiceImpl implements MeetingRoomService {
 
     @Override
     public List<MeetingRoom> getAllMeetingRooms() {
-        // TODO Auto-generated method stub
+  
         return meetingMapper.getAllMeetingRooms();
     }
 
     @Override
     public List<RoomTimeperiod> getAllTimeperiod() {
-        // TODO Auto-generated method stub
+        
         return roomTimeperiodMapper.getAllTimeperiod();
     }
     

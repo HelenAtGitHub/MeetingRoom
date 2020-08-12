@@ -29,8 +29,9 @@ public class MeetingRoomController {
     @ApiOperation("会议列表")
     //@ApiImplicitParam(name = "id", value = "id", defaultValue = "99", required = true)
     public String Index() {
-        System.out.println(meetingService.getAllMeetingRooms());
+        //System.out.println(meetingService.getAllMeetingRooms());
         Context ctx = new Context();
+        ctx.setVariable("rooms",meetingService.getAllMeetingRooms());
         return engine.process("/meeting/rooms/index", ctx);
     }
 }

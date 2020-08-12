@@ -39,19 +39,23 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped dataTable">
-                    <thead>
+                  <table class="table table-bordered">
+                    <thead>                  
                       <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
+                        <th style="width: 10px">#</th>
+                        <th>Room Name</th>
+                        <th>Status</th>
+                        <th>Create Time</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Gecko</td>
-                        <td>Epiphany 2.20</td>
-                        <td>Gnome</td>
+                      <tr th:each="user:${rooms}">
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.status}"></td>
+                        <td th:text="${user.createTime}"></td>
+                        <td><span class="badge bg-primary">Edit</span> | <span class="badge bg-primary">Delete</span></td>
                       </tr>
                     </tbody>
                   </table>
