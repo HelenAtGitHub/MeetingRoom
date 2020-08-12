@@ -1,4 +1,4 @@
-package cn.office.tools.usercenter.dao;
+package cn.office.tools.meetingroom.dao;
 
 import java.time.LocalDateTime;
 import java.util.Objects;

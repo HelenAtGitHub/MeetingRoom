@@ -1,4 +1,4 @@
-package cn.office.tools.usercenter.controller;
+package cn.office.tools.meetingroom.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import cn.office.tools.usercenter.service.MeetingRoomService;
+import cn.office.tools.meetingroom.service.MeetingRoomService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 

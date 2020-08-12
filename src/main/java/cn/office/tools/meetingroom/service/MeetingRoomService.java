@@ -1,11 +1,11 @@
-package cn.office.tools.usercenter.service;
+package cn.office.tools.meetingroom.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import cn.office.tools.usercenter.dao.MeetingRoom;
-import cn.office.tools.usercenter.dao.RoomTimeperiod;
+import cn.office.tools.meetingroom.dao.MeetingRoom;
+import cn.office.tools.meetingroom.dao.RoomTimeperiod;
 
 @Service
 public interface MeetingRoomService {
