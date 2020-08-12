@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import cn.office.tools.usercenter.service.UserService;
+import cn.office.tools.usercenter.service.RoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -22,19 +22,19 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/administrator")
 @Api(tags = "用户管理相关(Admin权限)")
 @PreAuthorize("hasRole('Admin')")
-public class UserController {
+public class RoleController {
     @Autowired
     private TemplateEngine engine;
     @Autowired
-    private UserService userService;
+    private RoleService roleService;
 
-    @GetMapping("/users")
+    @GetMapping("/roles")
     @ResponseBody
     @ApiOperation("显示用户列表")
     //@ApiImplicitParam(name = "id", value = "id", defaultValue = "99", required = true)
     public String Index() {
         Context ctx = new Context();
-        ctx.setVariable("users", userService.getAllUsers());
-        return engine.process("/administrator/user/index", ctx);
+        ctx.setVariable("roles", roleService.getAllRoles());
+        return engine.process("/administrator/role/index", ctx);
     }
 }
