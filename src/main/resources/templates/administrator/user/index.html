@@ -42,6 +42,7 @@
                       <tr>
                         <th style="width: 10px">#</th>
                         <th>User Name</th>
+                        <th>Is Delete</th>
                         <th>Create Time</th>
                         <th>Update Time</th>
                         <th>Action</th>
@@ -51,6 +52,9 @@
                       <tr th:each="user:${users}">
                         <td th:text="${user.id}"></td>
                         <td th:text="${user.username}"></td>
+                        <td>
+                          <input type="checkbox" disabled="" th:checked="${user.isDelete==1}">
+                        </td>
                         <td th:text="${user.createTime}"></td>
                         <td th:text="${user.updateTime}"></td>
                         <td><span class="badge bg-primary">Edit</span> | <span class="badge bg-primary">Delete</span></td>
