@@ -7,13 +7,13 @@ import java.util.Objects;
 
 public class RoomTimeperiod {
     private int id;
-    private Time startTime;
-    private Time endTime;
+    private String startTime;
+    private String endTime;
 
     public RoomTimeperiod() {
     }
 
-    public RoomTimeperiod(int id, Time startTime, Time endTime, int status, LocalDateTime createTime) {
+    public RoomTimeperiod(int id, String startTime, String endTime, int status, LocalDateTime createTime) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -29,19 +29,19 @@ public class RoomTimeperiod {
         this.id = id;
     }
 
-    public Time getStartTime() {
+    public String getStartTime() {
         return this.startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Time getEndTime() {
+    public String getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Time endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -66,12 +66,12 @@ public class RoomTimeperiod {
         return this;
     }
 
-    public RoomTimeperiod startTime(Time startTime) {
+    public RoomTimeperiod startTime(String startTime) {
         this.startTime = startTime;
         return this;
     }
 
-    public RoomTimeperiod endTime(Time endTime) {
+    public RoomTimeperiod endTime(String endTime) {
         this.endTime = endTime;
         return this;
     }
