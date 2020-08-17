@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cn.office.tools.meetingroom.dao.MeetingRoom;
 import cn.office.tools.meetingroom.service.MeetingRoomService;
+import cn.office.tools.meetingroom.vo.ResponseBasePojo;
 
 @RestController
 @RequestMapping("/rooms")
@@ -19,8 +20,11 @@ public class RoomController {
     private MeetingRoomService meetingService;
 
     @RequestMapping(value="/", method = RequestMethod.GET)
-    public List<MeetingRoom> getRooms() {
-        return meetingService.getAllMeetingRooms();
+    public ResponseBasePojo getRooms() {
+        ResponseBasePojo po = new ResponseBasePojo();
+        po.code = 0;
+        po.data = meetingService.getAllMeetingRooms();
+        return po;
     }
     
 }

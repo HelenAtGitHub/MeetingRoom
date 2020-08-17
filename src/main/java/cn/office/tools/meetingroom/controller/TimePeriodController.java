@@ -23,7 +23,7 @@ public class TimePeriodController {
     public ResponseBasePojo getTimePeriod() {
         ResponseBasePojo po = new ResponseBasePojo();
         po.code = 0;
-        po.data = (List<RoomTimeperiod>)meetingService.getAllTimeperiod();//JsonMapper.fromJson(, ResponseBasePojo.class);
+        po.data = (List<RoomTimeperiod>)meetingService.getAllTimeperiod();
         return po;
     }
 
