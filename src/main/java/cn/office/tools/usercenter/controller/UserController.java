@@ -28,7 +28,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     @ResponseBody
     @ApiOperation("显示用户列表")
     //@ApiImplicitParam(name = "id", value = "id", defaultValue = "99", required = true)
