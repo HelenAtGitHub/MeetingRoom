@@ -29,47 +29,65 @@
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
-          <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-12 col-12">
-              <!-- small box -->
+            <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">User List</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped dataTable">
-                    <thead>
+                  <table class="table table-bordered">
+                    <thead>                  
                       <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
+                        <th style="width: 10px">#</th>
+                        <th>User Name</th>
+                        <th>Is Delete</th>
+                        <th>Create Time</th>
+                        <th>Update Time</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Gecko</td>
-                        <td>Epiphany 2.20</td>
-                        <td>Gnome</td>
+                      <tr th:each="user:${users}">
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.username}"></td>
+                        <td>
+                          <input type="checkbox" disabled="" th:checked="${user.isDelete==1}">
+                        </td>
+                        <td th:text="${user.createTime}"></td>
+                        <td th:text="${user.updateTime}"></td>
+                        <td><span class="badge bg-primary">Edit</span> | <span class="badge bg-primary">Delete</span></td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">«</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">»</a></li>
+                  </ul>
+                </div>
               </div>
+              <!-- /.card -->
             </div>
-            <!-- ./col -->
+            <!-- /.col -->
           </div>
           <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
       </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
   </section>
-  <section layout:script="javascript">
-    <script></script>
+  <section layout:fragment="javascript">
+    <script>
+      alert($);
+    </script>
   </section>
 </body>
 

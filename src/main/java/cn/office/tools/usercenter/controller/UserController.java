@@ -33,8 +33,8 @@ public class UserController {
     @ApiOperation("显示用户列表")
     //@ApiImplicitParam(name = "id", value = "id", defaultValue = "99", required = true)
     public String Index() {
-        System.out.println(userService.getUserById(BigInteger.valueOf(1)));
         Context ctx = new Context();
+        ctx.setVariable("users", userService.getAllUsers());
         return engine.process("/administrator/user/index", ctx);
     }
 }
