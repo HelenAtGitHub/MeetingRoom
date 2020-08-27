@@ -2,13 +2,14 @@ import React from 'react';
 import { HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { Card, Typography, Alert } from 'antd';
 import { PageContainer } from '@ant-design/pro-layout';
-import TableBasic from '../../../components/StandardTable';
+import StandardTable from '../../../components/StandardTable';
 import { queryRule } from './user.service';
+import { columns} from './columns.d';
 
 const Result: React.FC<{}> = () => {
   return (
     <PageContainer content=" 这个页面只有 admin 权限才能查看">
-      <TableBasic
+      <StandardTable
         data = {queryRule}
         onClick = {[
           async () => {
@@ -18,6 +19,7 @@ const Result: React.FC<{}> = () => {
             return true;
           },
         ]}
+        columns = {columns()}
       />
       <Card>
         <Alert
