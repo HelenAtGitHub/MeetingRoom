@@ -92,6 +92,7 @@ export default {
       isDelete: 0,
       updateTime: '2020-08-13 11:19:00',
       createTime: '2020-08-13 11:19:00',
+      tags: ["nice", "developer"]
     }
   ],
   'POST /api/login/account': (req: Request, res: Response) => {
