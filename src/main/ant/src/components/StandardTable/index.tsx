@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import styles from "./index.less";
 import { Table, Divider ,message,Modal, Form, Input} from "antd";
-import { isFunction, isArray } from "lodash";
 import FormItem from "antd/lib/form/FormItem";
+import { IStardardTableProxy } from "./data";
 
 interface TableProperty{
-  data:()=>Promise<any>,
   columns:{title:string,key:string,dateIndex:string,hideInForm:boolean}[],
-  onClick:[()=>Promise<any>,()=>Promise<any>]
+  service:IStardardTableProxy
 }
 
 interface TableStateProperty{
       data: [],
       columns: {title:string,key:string,dateIndex:string,hideInForm:boolean}[],
-      onClick : [(arg: any)=>Promise<any>,(arg: any)=>Promise<any>],
+      service:IStardardTableProxy,
+      //onClick : [(arg: any)=>Promise<any>,(arg: any)=>Promise<any>],
       visible:boolean
 }
 
@@ -28,9 +28,9 @@ class StandardTable extends Component<TableProperty,TableStateProperty> {
       hideInForm:false,
       render: (text: any, record: any) => (
         <span>
-          <a onClick={() => this.onClick(0,record)}>Edit</a>
+          <a onClick={() => this.setState({visible:true})}>Edit</a>
           <Divider type="vertical" />
-          <a onClick={() => this.onClick(1,record)}>Delete</a>
+          <a onClick={() => this.setState({visible:true})}>Delete</a>
         </span>
       )
     };
@@ -38,18 +38,14 @@ class StandardTable extends Component<TableProperty,TableStateProperty> {
     this.state = {
       data: [],
       columns:props.columns,
-      onClick : props.onClick,
+      service:props.service,
       visible:false
     };
     this.load(props);
   }
 
-  async onClick(index: number,arg: any){
-    message.success("this");
-    if(isArray(this.state.onClick) && this.state.onClick.length > 1 && isFunction(this.state.onClick[index])){
-      this.setState({visible:true});
-      await this.state.onClick[index](arg);
-    }
+  handleOk(){
+    this.setState({visible:false});
   }
 
   handleCancel(){
@@ -58,8 +54,11 @@ class StandardTable extends Component<TableProperty,TableStateProperty> {
 
   load(props: Readonly<TableProperty>){
     var _this = this;
-    props.data().then(function(result){
-      _this.setState({data:result})
+    props.service.query({total:100,
+      pageSize:10,
+      current:1}).then(function(result){
+        console.log(result.data);
+       _this.setState({data:result.data});
     })
   }
 
@@ -91,7 +90,7 @@ class StandardTable extends Component<TableProperty,TableStateProperty> {
         <Modal
       title="Basic Modal"
       visible={this.state.visible}
-      onOk={this.handleOk}
+      onOk={()=>this.handleOk}
       onCancel={()=>this.setState({visible:false})}
     >
       <Form>

@@ -1,6 +1,6 @@
-export interface IReponseDao{
+export interface IResponseDao{
     code:string,
-    data:{},
+    data:[],
     message:string,
     success:boolean
 }

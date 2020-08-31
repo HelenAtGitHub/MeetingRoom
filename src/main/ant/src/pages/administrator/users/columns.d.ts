@@ -1,4 +1,4 @@
-export function columns() {
+export function columns() :{title:string,key:string,dateIndex:string,hideInForm:boolean}[]{
     return [
         {
           title: "Id",

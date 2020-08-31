@@ -85,16 +85,20 @@ export default {
     });
   },
   // GET POST 可省略
-  'GET /api/users': [
+  'GET /api/users': 
     {
+      code:"200",
+    data:[{
       id: '1',
       username: 'admin',
       isDelete: 0,
       updateTime: '2020-08-13 11:19:00',
       createTime: '2020-08-13 11:19:00',
       tags: ["nice", "developer"]
-    }
-  ],
+    }],
+    message:"",
+    success:true
+    },
   'POST /api/login/account': (req: Request, res: Response) => {
     const { password, username, type } = req.body;
     if (password === 'ant.design' && username === 'admin') {
