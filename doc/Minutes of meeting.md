@@ -1,5 +1,7 @@
 ### Meenting Minutes 
 
+------------
+
 #### 2020-08-30 Meeting Minutes 
 ##### 1. Yiyu 
 ###### Done：
@@ -29,6 +31,8 @@
 ###### To do :
  1. Create common component for user 
  2. Leave UserPermission for demo 
+ 
+ ------------
  
 #### 07/03 2020   changzhi 6th floor
 ##### Attendance:Yi Yu, Shi Yin , Xia Yongming, helen, yunfei
