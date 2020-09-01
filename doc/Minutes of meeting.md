@@ -14,19 +14,19 @@
 4. 	Deploy Database + web 
 
 ##### 2. Yongming 
-##### **Done：** 
+##### Done：
 1. 	 Get room API - room-controller
 2. 	 Get time API - time-period- controller
-##### **To do **:
+##### To do 
 1. 对meeting room model
 2. Add Booking details 
 3. Add room API in admin site 
 
 ####3. Shiyin
-##### **Done** : 
+##### Done: 
 1. 阿里中台 UI  ant 
 2. User / Role / permission 
-##### **To do **:
+##### To do :
  1. Create common component for user 
  2. Leave UserPermission for demo 
  
