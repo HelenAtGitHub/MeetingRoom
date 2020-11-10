@@ -9,6 +9,7 @@
 - Tab
 - Table
 - Scroll from left to right
+![Image text](https://github.com/HelenAtGitHub/MeetingRoom/blob/develop-helen/doc/image/0820_01_menu.png)
 ###### To Do :
 1. Will provide API interface definitions 
 2. 	Calendar - Define 7 days for now 
