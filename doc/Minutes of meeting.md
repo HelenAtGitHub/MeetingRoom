@@ -10,6 +10,7 @@
 - Table
 - Scroll from left to right
 - ![01_Menu](https://raw.githubusercontent.com/HelenAtGitHub/MeetingRoom/develop-helen/doc/image/0820_01_menu.png)
+![02_List](https://raw.githubusercontent.com/HelenAtGitHub/MeetingRoom/develop-helen/doc/image/0820_02_List.png)
 
 ###### To Do :
 1. Will provide API interface definitions 
@@ -21,6 +22,8 @@
 ###### Done：
 1. 	 Get room API - room-controller
 2. 	 Get time API - time-period- controller
+3.   ![03_Swagger](https://raw.githubusercontent.com/HelenAtGitHub/MeetingRoom/develop-helen/doc/image/0820_04_swagger.png)
+
 ###### To do 
 1. 对meeting room model
 2. Add Booking details 
@@ -30,6 +33,9 @@
 ###### Done: 
 1. 阿里中台 UI  ant 
 2. User / Role / permission 
+3. ![04_CMS Management](https://raw.githubusercontent.com/HelenAtGitHub/MeetingRoom/develop-helen/doc/image/0820_04_backend.png)
+4. ![05_User Management](https://raw.githubusercontent.com/HelenAtGitHub/MeetingRoom/develop-helen/doc/image/0820_05_user management.png)
+
 ###### To do :
  1. Create common component for user 
  2. Leave UserPermission for demo 
